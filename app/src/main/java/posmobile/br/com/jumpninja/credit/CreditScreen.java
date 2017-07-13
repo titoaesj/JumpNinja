@@ -37,20 +37,20 @@ public class CreditScreen extends AGScene {
     public void init() {
 //        setSceneBackgroundColor(0.0f,0.0f,1.0f);
 
-        ninjaJump = createSprite(R.drawable.ninja_jump,4,4);
-        ninjaJump.setScreenPercent(23,19);
-        ninjaJump.vrPosition.fX = AGScreenManager.iScreenWidth/2;
-        ninjaJump.vrPosition.fY = AGScreenManager.iScreenHeight/2;
-
-        ninjaGlide = createSprite(R.drawable.ninja_glide,4,3);
-        ninjaGlide.setScreenPercent(23,19);
-        ninjaGlide.vrPosition.fX = AGScreenManager.iScreenWidth/2;
-        ninjaGlide.vrPosition.fY = AGScreenManager.iScreenHeight/2 + ninjaGlide.getSpriteHeight();
-
-        ninjaDead = createSprite(R.drawable.ninja_dead,4,3);
-        ninjaDead.setScreenPercent(23,19);
-        ninjaDead.vrPosition.fX = AGScreenManager.iScreenWidth/2;
-        ninjaDead.vrPosition.fY = AGScreenManager.iScreenHeight/2 + ninjaGlide.getSpriteHeight() +  ninjaDead.getSpriteHeight();
+//        ninjaJump = createSprite(R.drawable.ninja_jump,,4);
+//        ninjaJump.setScreenPercent(23,19);
+//        ninjaJump.vrPosition.fX = AGScreenManager.iScreenWidth/2;
+//        ninjaJump.vrPosition.fY = AGScreenManager.iScreenHeight/2;
+//
+//        ninjaGlide = createSprite(R.drawable.ninja_glide,4,3);
+//        ninjaGlide.setScreenPercent(23,19);
+//        ninjaGlide.vrPosition.fX = AGScreenManager.iScreenWidth/2;
+//        ninjaGlide.vrPosition.fY = AGScreenManager.iScreenHeight/2 + ninjaGlide.getSpriteHeight();
+//
+//        ninjaDead = createSprite(R.drawable.ninja_dead,4,3);
+//        ninjaDead.setScreenPercent(23,19);
+//        ninjaDead.vrPosition.fX = AGScreenManager.iScreenWidth/2;
+//        ninjaDead.vrPosition.fY = AGScreenManager.iScreenHeight/2 + ninjaGlide.getSpriteHeight() +  ninjaDead.getSpriteHeight();
     }
 
     @Override
