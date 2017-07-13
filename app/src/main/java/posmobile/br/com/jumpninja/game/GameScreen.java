@@ -5,6 +5,7 @@ import posmobile.br.com.andgraph.AGInputManager;
 import posmobile.br.com.andgraph.AGScene;
 import posmobile.br.com.andgraph.AGScreenManager;
 import posmobile.br.com.andgraph.AGSprite;
+import posmobile.br.com.andgraph.AGTimer;
 import posmobile.br.com.jumpninja.R;
 
 /**
@@ -14,10 +15,11 @@ import posmobile.br.com.jumpninja.R;
 
 public class GameScreen extends AGScene {
 
-    AGSprite cenarySprint = null;
-    AGSprite ninjaJump = null;
+    AGSprite ninja = null;
+    AGSprite background = null;
 
-    Boolean direction = false;
+    AGTimer tempoNinja;
+
 
     /*******************************************
      * Name: CAGScene()
@@ -32,19 +34,25 @@ public class GameScreen extends AGScene {
 
     @Override
     public void init() {
+        setSceneBackgroundColor(1.0f, 1.0f, 1.0f);
 
-        cenarySprint = createSprite(R.drawable.ic_cenary,1,1);
-        cenarySprint.setScreenPercent(100, 100);
-        cenarySprint.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
-        cenarySprint.vrPosition.setY(AGScreenManager.iScreenHeight / 2);
+        //Cria Sprite de Background
+        background = createSprite(R.drawable.background, 1 , 1);
+        background.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
+        background.setScreenPercent(100, 100);
 
-        ninjaJump = createSprite(R.drawable.ic_ninja_jump, 4, 3);
-        ninjaJump.setScreenPercent(23, 19);
-        ninjaJump.vrPosition.fX = AGScreenManager.iScreenWidth / 2;
-        ninjaJump.vrPosition.fY = AGScreenManager.iScreenHeight / 2;
+        //Cria o Sprite do Ninja
+        ninja = createSprite(R.drawable.ninja, 1, 1);
+        ninja.setScreenPercent(12, 20);
+        ninja.vrPosition.setX( AGScreenManager.iScreenWidth / 2);
+        ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
 
+        tempoNinja = new AGTimer(25);
 
-
+    }
+    @Override
+    public void render() {
+        super.render();
     }
 
     @Override
@@ -59,19 +67,32 @@ public class GameScreen extends AGScene {
 
     @Override
     public void loop() {
+        gravidade();
+        atualizaMovimentoNinja();
+
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
         }
+    }
 
-        if (AGInputManager.vrTouchEvents.screenClicked()) {
-            if (!direction) {
-                ninjaJump.iMirror = AGSprite.HORIZONTAL;
-            } else {
-                ninjaJump.iMirror = AGSprite.NONE;
+    private void atualizaMovimentoNinja() {
+        tempoNinja.update();
+
+        if (tempoNinja.isTimeEnded()) {
+            tempoNinja.restart();
+
+            float acelerometro = AGInputManager.vrAccelerometer.getAccelX();
+            float halfWidth = ninja.getSpriteWidth() / 2;
+
+            if (acelerometro > 2 && ninja.vrPosition.getX() <= AGScreenManager.iScreenWidth - halfWidth) {
+                ninja.vrPosition.setX(ninja.vrPosition.getX() + 10);
+            } else if (acelerometro < -2 && ninja.vrPosition.getX() >= halfWidth) {
+                ninja.vrPosition.setX(ninja.vrPosition.getX() - 10);
             }
-
-            direction = !direction;
         }
-        ninjaJump.addAnimation(7, true, 0, 9);
+    }
+
+    private void gravidade(){
+
     }
 }

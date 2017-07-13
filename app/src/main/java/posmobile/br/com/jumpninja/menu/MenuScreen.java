@@ -16,10 +16,12 @@ import posmobile.br.com.jumpninja.R;
 
 public class MenuScreen extends AGScene {
 
+    private AGSprite backGround = null;
+    private AGSprite titulo = null;
 
-    AGSprite gameButton = null;
-    AGSprite creditButton = null;
-    AGSprite exitButton = null;
+    private AGSprite btnJogar = null;
+    private AGSprite btnCreditos = null;
+    private AGSprite btnDoacao = null;
 
 
     /*******************************************
@@ -36,21 +38,35 @@ public class MenuScreen extends AGScene {
     @Override
     public void init() {
         setSceneBackgroundColor(1.0f,1.0f,1.0f);
-        gameButton = createSprite(R.drawable.button1,1,1);
-        creditButton = createSprite(R.drawable.button2,1,1);
-        exitButton = createSprite(R.drawable.button3,1,1);
 
-        gameButton.setScreenPercent(60,10);
-        gameButton.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
-        gameButton.vrPosition.setY(AGScreenManager.iScreenHeight - gameButton.getSpriteHeight() * 4);
+        //Cria Sprite de Background
+        backGround = createSprite(R.drawable.background, 1 , 1);
+        backGround.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
+        backGround.setScreenPercent(100, 100);
 
-        creditButton.setScreenPercent(60,10);
-        creditButton.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
-        creditButton.vrPosition.setY(AGScreenManager.iScreenHeight - gameButton.getSpriteHeight() * 6);
+        //Titulo do game
+        titulo = createSprite(R.drawable.titulo_game, 1, 1);
+        titulo.setScreenPercent(100, 10);
+        titulo.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
+        titulo.vrPosition.setY(AGScreenManager.iScreenHeight - titulo.getSpriteHeight() * 2);
 
-        exitButton.setScreenPercent(60,10);
-        exitButton.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
-        exitButton.vrPosition.setY(AGScreenManager.iScreenHeight - gameButton.getSpriteHeight() * 8);
+        //Botão de Jogar
+        btnJogar = createSprite(R.drawable.btnjogar,1,1);
+        btnJogar.setScreenPercent(60,10);
+        btnJogar.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
+        btnJogar.vrPosition.setY(AGScreenManager.iScreenHeight - btnJogar.getSpriteHeight() * 4);
+
+        //Botão de Créditos
+        btnCreditos = createSprite(R.drawable.btncreditos,1,1);
+        btnCreditos.setScreenPercent(60,10);
+        btnCreditos.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
+        btnCreditos.vrPosition.setY(AGScreenManager.iScreenHeight - btnJogar.getSpriteHeight() * 6);
+
+        //Botão de Doação
+        btnDoacao = createSprite(R.drawable.btndoacao,1,1);
+        btnDoacao.setScreenPercent(60,10);
+        btnDoacao.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
+        btnDoacao.vrPosition.setY(AGScreenManager.iScreenHeight - btnJogar.getSpriteHeight() * 8);
 
     }
 
@@ -67,17 +83,17 @@ public class MenuScreen extends AGScene {
     @Override
     public void loop() {
         if (AGInputManager.vrTouchEvents.screenClicked()) {
-            if (gameButton.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
+            if (btnJogar.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
                 vrGameManager.setCurrentScene(2);
                 return;
             }
 
-            if (creditButton.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
+            if (btnCreditos.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
                 vrGameManager.setCurrentScene(3);
                 return;
             }
 
-            if (exitButton.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
+            if (btnDoacao.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
                 vrGameManager.vrActivity.finish();
             }
 

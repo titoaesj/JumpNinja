@@ -15,12 +15,8 @@ import posmobile.br.com.jumpninja.R;
 
 public class CreditScreen extends AGScene {
 
-
-    AGSprite ninjaJump = null;
-    AGSprite ninjaDead = null;
-    AGSprite ninjaGlide = null;
-
-    Boolean direction = false;
+    private AGSprite background = null;
+    private AGSprite titulo = null;
 
     /*******************************************
      * Name: CAGScene()
@@ -35,22 +31,17 @@ public class CreditScreen extends AGScene {
 
     @Override
     public void init() {
-//        setSceneBackgroundColor(0.0f,0.0f,1.0f);
+        //Cria Sprite de BackGround
+        background = createSprite(R.drawable.background, 1 , 1);
+        background.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
+        background.setScreenPercent(100, 100);
 
-//        ninjaJump = createSprite(R.drawable.ninja_jump,,4);
-//        ninjaJump.setScreenPercent(23,19);
-//        ninjaJump.vrPosition.fX = AGScreenManager.iScreenWidth/2;
-//        ninjaJump.vrPosition.fY = AGScreenManager.iScreenHeight/2;
-//
-//        ninjaGlide = createSprite(R.drawable.ninja_glide,4,3);
-//        ninjaGlide.setScreenPercent(23,19);
-//        ninjaGlide.vrPosition.fX = AGScreenManager.iScreenWidth/2;
-//        ninjaGlide.vrPosition.fY = AGScreenManager.iScreenHeight/2 + ninjaGlide.getSpriteHeight();
-//
-//        ninjaDead = createSprite(R.drawable.ninja_dead,4,3);
-//        ninjaDead.setScreenPercent(23,19);
-//        ninjaDead.vrPosition.fX = AGScreenManager.iScreenWidth/2;
-//        ninjaDead.vrPosition.fY = AGScreenManager.iScreenHeight/2 + ninjaGlide.getSpriteHeight() +  ninjaDead.getSpriteHeight();
+        //Titulo de Créditos
+        titulo = createSprite(R.drawable.titulo_credito, 1, 1);
+        titulo.setScreenPercent(90, 10);
+        titulo.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
+        titulo.vrPosition.setY(AGScreenManager.iScreenHeight - titulo.getSpriteHeight() * 2);
+
     }
 
     @Override
@@ -65,30 +56,8 @@ public class CreditScreen extends AGScene {
 
     @Override
     public void loop() {
-
-
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
         }
-
-//        if (AGInputManager.vrTouchEvents.screenClicked()) {
-//            if ( ! direction) {
-//
-//                ninjaDead.iMirror = AGSprite.HORIZONTAL;
-//                ninjaJump.iMirror = AGSprite.HORIZONTAL;
-//                ninjaGlide.iMirror = AGSprite.HORIZONTAL;
-//
-//            } else {
-//                ninjaDead.iMirror = AGSprite.NONE;
-//                ninjaJump.iMirror = AGSprite.NONE;
-//                ninjaGlide.iMirror = AGSprite.NONE;
-//            }
-//
-//            direction = ! direction;
-//        }
-//
-//        ninjaJump.addAnimation(7,true,0,9);
-//        ninjaGlide.addAnimation(10,true,0,9);
-//        ninjaDead.addAnimation(10,true,0,9);
     }
 }
