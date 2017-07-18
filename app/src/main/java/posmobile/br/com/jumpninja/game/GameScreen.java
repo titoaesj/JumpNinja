@@ -36,7 +36,7 @@ public class GameScreen extends AGScene {
     public void init() {
         setSceneBackgroundColor(1.0f, 1.0f, 1.0f);
 
-        //Cria Sprite de Background
+        //Cria Sprite de background
         background = createSprite(R.drawable.background, 1 , 1);
         background.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
         background.setScreenPercent(100, 100);

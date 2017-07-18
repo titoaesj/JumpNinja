@@ -39,7 +39,7 @@ public class MenuScreen extends AGScene {
     public void init() {
         setSceneBackgroundColor(1.0f,1.0f,1.0f);
 
-        //Cria Sprite de Background
+        //Cria Sprite de background
         backGround = createSprite(R.drawable.background, 1 , 1);
         backGround.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
         backGround.setScreenPercent(100, 100);
