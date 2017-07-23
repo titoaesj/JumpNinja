@@ -1,5 +1,7 @@
 package posmobile.br.com.jumpninja.game;
 
+import java.util.ArrayList;
+
 import posmobile.br.com.andgraph.AGGameManager;
 import posmobile.br.com.andgraph.AGInputManager;
 import posmobile.br.com.andgraph.AGScene;
@@ -17,6 +19,7 @@ public class GameScreen extends AGScene {
 
     AGSprite ninja = null;
     AGSprite background = null;
+    AGSprite[] platform = new AGSprite[9];
 
     AGTimer tempoNinja;
 
@@ -34,22 +37,72 @@ public class GameScreen extends AGScene {
 
     @Override
     public void init() {
+
         setSceneBackgroundColor(1.0f, 1.0f, 1.0f);
 
         //Cria Sprite de background
-        background = createSprite(R.drawable.background, 1 , 1);
-        background.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
+        background = createSprite(R.drawable.background, 1, 1);
+        background.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         background.setScreenPercent(100, 100);
 
         //Cria o Sprite do Ninja
         ninja = createSprite(R.drawable.ninja, 1, 1);
         ninja.setScreenPercent(12, 20);
-        ninja.vrPosition.setX( AGScreenManager.iScreenWidth / 2);
+        ninja.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
+
+        //Cria o Sprite da plataforma
+        platform[0] = createSprite(R.drawable.wood, 1, 1);
+        platform[0].setScreenPercent(75, 5);
+        platform[0].vrPosition.setXY(AGScreenManager.iScreenWidth,
+                ninja.getSpriteHeight()/2);
+
+        platform[1] = createSprite(R.drawable.wood, 1, 1);
+        platform[1].setScreenPercent(75, 5);
+        platform[1].vrPosition.setXY(0,
+                (ninja.getSpriteHeight()*2)/2);
+
+        platform[2] = createSprite(R.drawable.wood, 1, 1);
+        platform[2].setScreenPercent(75, 5);
+        platform[2].vrPosition.setXY(AGScreenManager.iScreenWidth,
+                (ninja.getSpriteHeight()*3)/2);
+
+        platform[3] = createSprite(R.drawable.wood, 1, 1);
+        platform[3].setScreenPercent(75, 5);
+        platform[3].vrPosition.setXY(0,
+                (ninja.getSpriteHeight()*4)/2);
+
+        platform[4] = createSprite(R.drawable.wood, 1, 1);
+        platform[4].setScreenPercent(75, 5);
+        platform[4].vrPosition.setXY(AGScreenManager.iScreenWidth,
+                (ninja.getSpriteHeight()*5)/2);
+
+        platform[5] = createSprite(R.drawable.wood, 1, 1);
+        platform[5].setScreenPercent(75, 5);
+        platform[5].vrPosition.setXY(0,
+                (ninja.getSpriteHeight()*6)/2);
+
+        platform[6] = createSprite(R.drawable.wood, 1, 1);
+        platform[6].setScreenPercent(75, 5);
+        platform[6].vrPosition.setXY(AGScreenManager.iScreenWidth,
+                (ninja.getSpriteHeight()*7)/2);
+
+        platform[7] = createSprite(R.drawable.wood, 1, 1);
+        platform[7].setScreenPercent(75, 5);
+        platform[7].vrPosition.setXY(0,
+                (ninja.getSpriteHeight()*8)/2);
+
+        platform[8] = createSprite(R.drawable.wood, 1, 1);
+        platform[8].setScreenPercent(75, 5);
+        platform[8].vrPosition.setXY(AGScreenManager.iScreenWidth,
+                (ninja.getSpriteHeight()*9)/2);
+
+
 
         tempoNinja = new AGTimer(25);
 
     }
+
     @Override
     public void render() {
         super.render();
@@ -92,7 +145,7 @@ public class GameScreen extends AGScene {
         }
     }
 
-    private void gravidade(){
+    private void gravidade() {
 
     }
 }
