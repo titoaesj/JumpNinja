@@ -55,47 +55,47 @@ public class GameScreen extends AGScene {
         platform[0] = createSprite(R.drawable.wood, 1, 1);
         platform[0].setScreenPercent(75, 5);
         platform[0].vrPosition.setXY(AGScreenManager.iScreenWidth,
-                ninja.getSpriteHeight()/2);
+                ninja.getSpriteHeight());
 
         platform[1] = createSprite(R.drawable.wood, 1, 1);
         platform[1].setScreenPercent(75, 5);
         platform[1].vrPosition.setXY(0,
-                (ninja.getSpriteHeight()*2)/2);
+                (ninja.getSpriteHeight()*2));
 
         platform[2] = createSprite(R.drawable.wood, 1, 1);
         platform[2].setScreenPercent(75, 5);
         platform[2].vrPosition.setXY(AGScreenManager.iScreenWidth,
-                (ninja.getSpriteHeight()*3)/2);
+                (ninja.getSpriteHeight()*3));
 
         platform[3] = createSprite(R.drawable.wood, 1, 1);
         platform[3].setScreenPercent(75, 5);
         platform[3].vrPosition.setXY(0,
-                (ninja.getSpriteHeight()*4)/2);
+                (ninja.getSpriteHeight()*4));
 
-        platform[4] = createSprite(R.drawable.wood, 1, 1);
-        platform[4].setScreenPercent(75, 5);
-        platform[4].vrPosition.setXY(AGScreenManager.iScreenWidth,
-                (ninja.getSpriteHeight()*5)/2);
-
-        platform[5] = createSprite(R.drawable.wood, 1, 1);
-        platform[5].setScreenPercent(75, 5);
-        platform[5].vrPosition.setXY(0,
-                (ninja.getSpriteHeight()*6)/2);
-
-        platform[6] = createSprite(R.drawable.wood, 1, 1);
-        platform[6].setScreenPercent(75, 5);
-        platform[6].vrPosition.setXY(AGScreenManager.iScreenWidth,
-                (ninja.getSpriteHeight()*7)/2);
-
-        platform[7] = createSprite(R.drawable.wood, 1, 1);
-        platform[7].setScreenPercent(75, 5);
-        platform[7].vrPosition.setXY(0,
-                (ninja.getSpriteHeight()*8)/2);
-
-        platform[8] = createSprite(R.drawable.wood, 1, 1);
-        platform[8].setScreenPercent(75, 5);
-        platform[8].vrPosition.setXY(AGScreenManager.iScreenWidth,
-                (ninja.getSpriteHeight()*9)/2);
+//        platform[4] = createSprite(R.drawable.wood, 1, 1);
+//        platform[4].setScreenPercent(75, 5);
+//        platform[4].vrPosition.setXY(AGScreenManager.iScreenWidth,
+//                (ninja.getSpriteHeight()*5));
+//
+//        platform[5] = createSprite(R.drawable.wood, 1, 1);
+//        platform[5].setScreenPercent(75, 5);
+//        platform[5].vrPosition.setXY(0,
+//                (ninja.getSpriteHeight()*6));
+//
+//        platform[6] = createSprite(R.drawable.wood, 1, 1);
+//        platform[6].setScreenPercent(75, 5);
+//        platform[6].vrPosition.setXY(AGScreenManager.iScreenWidth,
+//                (ninja.getSpriteHeight()*7));
+//
+//        platform[7] = createSprite(R.drawable.wood, 1, 1);
+//        platform[7].setScreenPercent(75, 5);
+//        platform[7].vrPosition.setXY(0,
+//                (ninja.getSpriteHeight()*8));
+//
+//        platform[8] = createSprite(R.drawable.wood, 1, 1);
+//        platform[8].setScreenPercent(75, 5);
+//        platform[8].vrPosition.setXY(AGScreenManager.iScreenWidth,
+//                (ninja.getSpriteHeight()*9));
 
 
 
