@@ -50,6 +50,7 @@ public class GameScreen extends AGScene {
         ninja.setScreenPercent(12, 20);
         ninja.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
+        ninja.bAutoRender = false;
 
         //Cria o Sprite da plataforma
         platform[0] = createSprite(R.drawable.wood, 1, 1);
@@ -106,6 +107,7 @@ public class GameScreen extends AGScene {
     @Override
     public void render() {
         super.render();
+        ninja.render();
     }
 
     @Override
@@ -126,6 +128,7 @@ public class GameScreen extends AGScene {
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
         }
+
     }
 
     private void atualizaMovimentoNinja() {
@@ -146,6 +149,6 @@ public class GameScreen extends AGScene {
     }
 
     private void gravidade() {
-
     }
+    
 }
