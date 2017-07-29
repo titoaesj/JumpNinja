@@ -1,6 +1,6 @@
 package posmobile.br.com.jumpninja.game;
 
-import java.util.ArrayList;
+import android.util.Log;
 
 import posmobile.br.com.andgraph.AGGameManager;
 import posmobile.br.com.andgraph.AGInputManager;
@@ -17,12 +17,14 @@ import posmobile.br.com.jumpninja.R;
 
 public class GameScreen extends AGScene {
 
-    AGSprite ninja = null;
     AGSprite background = null;
+    AGSprite ninja = null;
     AGSprite[] platform = new AGSprite[9];
 
-    AGTimer tempoNinja;
+    AGTimer tempoAcelerometroNinja;
+    AGTimer tempoPuloNinja;
 
+    int puloNinja = 0;
 
     /*******************************************
      * Name: CAGScene()
@@ -39,6 +41,9 @@ public class GameScreen extends AGScene {
     public void init() {
 
         setSceneBackgroundColor(1.0f, 1.0f, 1.0f);
+
+        tempoAcelerometroNinja = new AGTimer(25);
+        tempoPuloNinja = new AGTimer(75);
 
         //Cria Sprite de background
         background = createSprite(R.drawable.background, 1, 1);
@@ -71,36 +76,6 @@ public class GameScreen extends AGScene {
         platform[3].setScreenPercent(75, 5);
         platform[3].vrPosition.setXY(0,
                 (ninja.getSpriteHeight()*4));
-
-//        platform[4] = createSprite(R.drawable.wood, 1, 1);
-//        platform[4].setScreenPercent(75, 5);
-//        platform[4].vrPosition.setXY(AGScreenManager.iScreenWidth,
-//                (ninja.getSpriteHeight()*5));
-//
-//        platform[5] = createSprite(R.drawable.wood, 1, 1);
-//        platform[5].setScreenPercent(75, 5);
-//        platform[5].vrPosition.setXY(0,
-//                (ninja.getSpriteHeight()*6));
-//
-//        platform[6] = createSprite(R.drawable.wood, 1, 1);
-//        platform[6].setScreenPercent(75, 5);
-//        platform[6].vrPosition.setXY(AGScreenManager.iScreenWidth,
-//                (ninja.getSpriteHeight()*7));
-//
-//        platform[7] = createSprite(R.drawable.wood, 1, 1);
-//        platform[7].setScreenPercent(75, 5);
-//        platform[7].vrPosition.setXY(0,
-//                (ninja.getSpriteHeight()*8));
-//
-//        platform[8] = createSprite(R.drawable.wood, 1, 1);
-//        platform[8].setScreenPercent(75, 5);
-//        platform[8].vrPosition.setXY(AGScreenManager.iScreenWidth,
-//                (ninja.getSpriteHeight()*9));
-
-
-
-        tempoNinja = new AGTimer(25);
-
     }
 
     @Override
@@ -120,8 +95,8 @@ public class GameScreen extends AGScene {
 
     @Override
     public void loop() {
-        gravidade();
         atualizaMovimentoNinja();
+        atualizaPuloNinja();
 
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
@@ -129,23 +104,45 @@ public class GameScreen extends AGScene {
     }
 
     private void atualizaMovimentoNinja() {
-        tempoNinja.update();
+        tempoAcelerometroNinja.update();
 
-        if (tempoNinja.isTimeEnded()) {
-            tempoNinja.restart();
+        if (tempoAcelerometroNinja.isTimeEnded()) {
+            tempoAcelerometroNinja.restart();
 
             float acelerometro = AGInputManager.vrAccelerometer.getAccelX();
             float halfWidth = ninja.getSpriteWidth() / 2;
 
             if (acelerometro > 2 && ninja.vrPosition.getX() <= AGScreenManager.iScreenWidth - halfWidth) {
                 ninja.vrPosition.setX(ninja.vrPosition.getX() + 10);
+                ninja.iMirror = AGSprite.NONE;
             } else if (acelerometro < -2 && ninja.vrPosition.getX() >= halfWidth) {
                 ninja.vrPosition.setX(ninja.vrPosition.getX() - 10);
+                ninja.iMirror = AGSprite.HORIZONTAL;
             }
         }
     }
 
-    private void gravidade() {
+    private void atualizaPuloNinja(){
+        tempoPuloNinja.update();
 
+        if(tempoPuloNinja.isTimeEnded()){
+            tempoPuloNinja.restart();
+
+            //Reinicia o Pulo
+            if(puloNinja == 10){
+                puloNinja = 0;
+            }
+
+            //Faz o Pulo
+            if(puloNinja < 5){
+                ninja.vrPosition.setY(ninja.vrPosition.getY() + 25);
+            }else{
+                ninja.vrPosition.setY(ninja.vrPosition.getY() - 25);
+            }
+
+            Log.d("Pulo Ninja", "ID : " + puloNinja);
+            puloNinja++;
+
+        }
     }
 }
