@@ -52,7 +52,7 @@ public class GameScreen extends AGScene {
 
         //Cria o Sprite do Ninja
         ninja = createSprite(R.drawable.ninja, 1, 1);
-        ninja.setScreenPercent(12, 20);
+        ninja.setScreenPercent(8, 12);
         ninja.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
         ninja.bAutoRender = false;
@@ -77,6 +77,26 @@ public class GameScreen extends AGScene {
         platform[3].setScreenPercent(75, 5);
         platform[3].vrPosition.setXY(0,
                 (ninja.getSpriteHeight() * 4));
+
+        platform[2] = createSprite(R.drawable.wood, 1, 1);
+        platform[2].setScreenPercent(75, 5);
+        platform[2].vrPosition.setXY(AGScreenManager.iScreenWidth,
+                (ninja.getSpriteHeight() * 5));
+
+        platform[3] = createSprite(R.drawable.wood, 1, 1);
+        platform[3].setScreenPercent(75, 5);
+        platform[3].vrPosition.setXY(0,
+                (ninja.getSpriteHeight() * 6));
+
+        platform[2] = createSprite(R.drawable.wood, 1, 1);
+        platform[2].setScreenPercent(75, 5);
+        platform[2].vrPosition.setXY(AGScreenManager.iScreenWidth,
+                (ninja.getSpriteHeight() * 7));
+
+        platform[3] = createSprite(R.drawable.wood, 1, 1);
+        platform[3].setScreenPercent(75, 5);
+        platform[3].vrPosition.setXY(0,
+                (ninja.getSpriteHeight() * 8));
     }
 
     @Override
@@ -137,11 +157,13 @@ public class GameScreen extends AGScene {
                 puloNinja = 0;
             }
 
+            Float auxHeight = ((ninja.getSpriteHeight() / 5));
+
             //Faz o Pulo
             if (puloNinja < 5) {
-                ninja.vrPosition.setY(ninja.vrPosition.getY() + 25);
+                ninja.vrPosition.setY(ninja.vrPosition.getY() +  auxHeight);
             } else {
-                ninja.vrPosition.setY(ninja.vrPosition.getY() - 25);
+                ninja.vrPosition.setY(ninja.vrPosition.getY() - auxHeight);
             }
 
             Log.d("Pulo Ninja", "ID : " + puloNinja);
