@@ -32,15 +32,9 @@ public class CreditScreen extends AGScene {
     @Override
     public void init() {
         //Cria Sprite de BackGround
-        background = createSprite(R.drawable.background, 1 , 1);
+        background = createSprite(R.drawable.credit, 1 , 1);
         background.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
         background.setScreenPercent(100, 100);
-
-        //Titulo de Créditos
-        titulo = createSprite(R.drawable.titulo_credito, 1, 1);
-        titulo.setScreenPercent(90, 10);
-        titulo.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
-        titulo.vrPosition.setY(AGScreenManager.iScreenHeight - titulo.getSpriteHeight() * 2);
 
     }
 
