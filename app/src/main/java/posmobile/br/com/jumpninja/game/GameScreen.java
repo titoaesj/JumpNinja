@@ -51,8 +51,9 @@ public class GameScreen extends AGScene {
         background.setScreenPercent(100, 100);
 
         //Cria o Sprite do Ninja
-        ninja = createSprite(R.drawable.ninja, 1, 1);
-        ninja.setScreenPercent(8, 12);
+        ninja = createSprite(R.drawable.ninja_female_jump, 4, 3);
+        ninja.addAnimation(10, false, 0, 9);
+        ninja.setScreenPercent(20, 15);
         ninja.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
         ninja.bAutoRender = false;
@@ -147,10 +148,10 @@ public class GameScreen extends AGScene {
 
 
     private void atualizaPuloNinja() {
-        tempoPuloNinja.update();
+//        tempoPuloNinja.update();
 
-        if (tempoPuloNinja.isTimeEnded()) {
-            tempoPuloNinja.restart();
+        if (ninja.getCurrentAnimation().isAnimationEnded()) {
+            ninja.getCurrentAnimation().restart();
 
             //Reinicia o Pulo
             if (puloNinja == 10) {
@@ -161,7 +162,7 @@ public class GameScreen extends AGScene {
 
             //Faz o Pulo
             if (puloNinja < 5) {
-                ninja.vrPosition.setY(ninja.vrPosition.getY() +  auxHeight);
+                ninja.vrPosition.setY(ninja.vrPosition.getY() + auxHeight);
             } else {
                 ninja.vrPosition.setY(ninja.vrPosition.getY() - auxHeight);
             }
