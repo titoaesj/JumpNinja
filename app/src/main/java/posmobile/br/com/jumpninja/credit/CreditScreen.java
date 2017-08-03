@@ -6,6 +6,7 @@ import posmobile.br.com.andgraph.AGScene;
 import posmobile.br.com.andgraph.AGScreenManager;
 import posmobile.br.com.andgraph.AGSprite;
 
+import posmobile.br.com.andgraph.AGTimer;
 import posmobile.br.com.jumpninja.R;
 
 /**
@@ -16,7 +17,8 @@ import posmobile.br.com.jumpninja.R;
 public class CreditScreen extends AGScene {
 
     private AGSprite background = null;
-    private AGSprite titulo = null;
+    private AGSprite credit = null;
+    AGTimer tempoCredit = null;
 
     /*******************************************
      * Name: CAGScene()
@@ -32,9 +34,15 @@ public class CreditScreen extends AGScene {
     @Override
     public void init() {
         //Cria Sprite de BackGround
-        background = createSprite(R.drawable.credit, 1 , 1);
+        background = createSprite(R.drawable.credit_background, 1 , 1);
         background.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
         background.setScreenPercent(100, 100);
+
+        credit = createSprite(R.drawable.credit, 1 , 1);
+        credit.vrPosition.setXY(AGScreenManager.iScreenWidth/2,0);
+        credit.setScreenPercent(80, 100);
+
+        tempoCredit = new AGTimer(100);
 
     }
 
@@ -52,6 +60,18 @@ public class CreditScreen extends AGScene {
     public void loop() {
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
+        }
+
+        moveCredit();
+    }
+
+    private void moveCredit() {
+        tempoCredit.update();
+        if (tempoCredit.isTimeEnded()) {
+            tempoCredit.restart();
+            if (credit.vrPosition.getY() <= AGScreenManager.iScreenHeight / 1.8) {
+                credit.vrPosition.fY = credit.vrPosition.getY() + 10;
+            }
         }
     }
 }
