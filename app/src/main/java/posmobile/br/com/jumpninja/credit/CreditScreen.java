@@ -39,8 +39,8 @@ public class CreditScreen extends AGScene {
         background.setScreenPercent(100, 100);
 
         credit = createSprite(R.drawable.credit, 1 , 1);
-        credit.vrPosition.setXY(AGScreenManager.iScreenWidth/2,0);
-        credit.setScreenPercent(80, 100);
+        credit.vrPosition.setXY(AGScreenManager.iScreenWidth/2,AGScreenManager.iScreenHeight/2);
+        credit.setScreenPercent(80, 80);
 
         tempoCredit = new AGTimer(100);
 
@@ -62,7 +62,7 @@ public class CreditScreen extends AGScene {
             vrGameManager.setCurrentScene(1);
         }
 
-        moveCredit();
+//        moveCredit();
     }
 
     private void moveCredit() {
