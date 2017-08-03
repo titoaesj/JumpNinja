@@ -148,19 +148,21 @@ public class GameScreen extends AGScene {
 
 
     private void atualizaPuloNinja() {
-//        tempoPuloNinja.update();
+        tempoPuloNinja.update();
 
-        if (ninja.getCurrentAnimation().isAnimationEnded()) {
-            ninja.getCurrentAnimation().restart();
-
+        if (tempoPuloNinja.isTimeEnded()) {
+            tempoPuloNinja.restart();
+            
             //Reinicia o Pulo
             if (puloNinja == 10) {
+                ninja.getCurrentAnimation().restart();
                 puloNinja = 0;
             }
 
             Float auxHeight = ((ninja.getSpriteHeight() / 5));
 
             //Faz o Pulo
+            ninja.getCurrentAnimation().update();
             if (puloNinja < 5) {
                 ninja.vrPosition.setY(ninja.vrPosition.getY() + auxHeight);
             } else {
