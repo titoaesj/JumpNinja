@@ -66,8 +66,8 @@ public class GameScreen extends AGScene {
         shuriken.setScreenPercent(15,13);
 
         //Cria o Sprite do Ninja
-        ninja = createSprite(R.drawable.ninja_male_jump, 4, 3);
-        ninja.addAnimation(10, false, 0, 10);
+        ninja = createSprite(R.drawable.ninja_female_jump, 4, 3);
+        ninja.addAnimation(10, false, 0, 9);
         ninja.setScreenPercent(20, 15);
         ninja.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
