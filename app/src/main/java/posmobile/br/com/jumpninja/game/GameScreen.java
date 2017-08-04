@@ -1,7 +1,5 @@
 package posmobile.br.com.jumpninja.game;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import posmobile.br.com.andgraph.AGGameManager;
@@ -74,6 +72,29 @@ public class GameScreen extends AGScene {
             novaPlataforma.vrPosition.setY(ninja.getSpriteHeight() * i);
             plataformas.add(novaPlataforma);
         }
+
+        //Teste de plataforma no Chão
+        AGSprite novaPlataforma1 = createSprite(R.drawable.wood, 1, 1);
+        novaPlataforma1.setScreenPercent(75, 5);
+        novaPlataforma1.vrPosition.setX(AGScreenManager.iScreenWidth);
+        novaPlataforma1.vrPosition.setY(0);
+
+        //Teste de plataforma no Chão
+        AGSprite novaPlataforma2 = createSprite(R.drawable.wood, 1, 1);
+        novaPlataforma2.setScreenPercent(75, 5);
+        novaPlataforma2.vrPosition.setX(AGScreenManager.iScreenWidth/2);
+        novaPlataforma2.vrPosition.setY(0);
+
+        //Teste de plataforma no Chão
+        AGSprite novaPlataforma3 = createSprite(R.drawable.wood, 1, 1);
+        novaPlataforma3.setScreenPercent(75, 5);
+        novaPlataforma3.vrPosition.setX(0);
+        novaPlataforma3.vrPosition.setY(0);
+
+        plataformas.add(novaPlataforma1);
+        plataformas.add(novaPlataforma2);
+        plataformas.add(novaPlataforma3);
+
     }
 
     @Override
@@ -96,7 +117,6 @@ public class GameScreen extends AGScene {
     public void loop() {
         atualizaMovimentoNinja();
         atualizaPuloNinja();
-        verificaColisaoPlataformas();
 
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
@@ -136,40 +156,40 @@ public class GameScreen extends AGScene {
             tempoPuloNinja.restart();
 
             //Reinicia o Pulo
-            if (puloNinja == 10) {
+            if (verificaColisaoPlataformas()) {
                 ninja.getCurrentAnimation().restart();
                 puloNinja = 0;
             }
 
             Float alturaPulo = ((ninja.getSpriteHeight() / 5));
 
-            //Faz o Pulo
-            ninja.getCurrentAnimation().update();
             if (puloNinja < 5) {
                 ninja.vrPosition.setY(ninja.vrPosition.getY() + alturaPulo);
             } else {
                 ninja.vrPosition.setY(ninja.vrPosition.getY() - alturaPulo);
             }
-
-            Log.d("Pulo Ninja", "ID : " + puloNinja);
+            if(ninja.getCurrentAnimation().getCurrentFrame() != ninja.getCurrentAnimation().getTotalFrames()){
+                ninja.getCurrentAnimation().update();
+            }
             puloNinja++;
 
         }
     }
 
-    private void verificaColisaoPlataformas() {
-
+    private boolean verificaColisaoPlataformas() {
         for (AGSprite plataforma : plataformas) {
             if (ninja.collide(plataforma) &&
-                    (ninja.vrPosition.getX() - ninja.getSpriteHeight()/6 <= plataforma.vrPosition.getX() + plataforma.getSpriteHeight()/2 &&
-                            ninja.vrPosition.getX() - ninja.getSpriteHeight()/6 >= plataforma.vrPosition.getX() + plataforma.getSpriteHeight()/2) ) {
-                puloNinja = 0;
-                break;
+                    (ninja.vrPosition.getX()) > (plataforma.vrPosition.getX() - plataforma.getSpriteWidth() / 2) &&
+                    (ninja.vrPosition.getX()) < (plataforma.vrPosition.getX() + plataforma.getSpriteWidth() / 2) &&
+                    (ninja.vrPosition.getY() - ninja.getSpriteHeight() / 2) > (plataforma.vrPosition.getY() - plataforma.getSpriteHeight() / 2) &&
+                    (ninja.vrPosition.getY() - ninja.getSpriteHeight() / 2) < (plataforma.vrPosition.getY() + plataforma.getSpriteHeight() / 2)) {
+                return true;
             }
         }
+        return false;
     }
 
-    private void criaTiro() {
+    private void criaPlataforma() {
         //TENTA RECICLAR UMA BALA CRIADA ANTERIORMENTE
         if (AGInputManager.vrTouchEvents.screenClicked()) {
 

@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0b5d28f-d1ca-4833-b390-7c7e1cda8437" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_glide.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_glide.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/assets/explodenavio.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/assets/olha-o-gas.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/assets/toc.wav" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
     </list>
     <ignored path="andgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +46,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+            <state relative-caret-position="612">
+              <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1004#1005#0" expanded="true" />
+                <element signature="e#1035#1036#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -2820,8 +2834,8 @@
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/splash/SplashScreen.java" />
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/menu/MenuScreen.java" />
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/credit/CreditScreen.java" />
-        <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java" />
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
+        <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -3674,7 +3688,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="543">
           <caret line="98" column="44" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3743,7 +3761,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3751,7 +3773,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3759,7 +3785,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3782,7 +3812,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3931,14 +3965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3956,8 +3982,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+        <state relative-caret-position="612">
+          <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1004#1005#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
           <folding />
         </state>
       </provider>

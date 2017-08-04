@@ -20,6 +20,7 @@ public class MainActivity extends AGActivityGame {
          */
         init(this, true);
 
+
 //        SplashScreen splashScreen = new SplashScreen(this.vrManager);
         GameScreen gameScreen = new GameScreen(this.vrManager);
 //        MenuScreen menuScreen = new MenuScreen(this.vrManager);
