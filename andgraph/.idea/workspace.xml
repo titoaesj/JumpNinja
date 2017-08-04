@@ -10,9 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0b5d28f-d1ca-4833-b390-7c7e1cda8437" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_glide.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_glide.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
     </list>
@@ -50,20 +47,13 @@
         <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
-              <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
+              <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1004#1005#0" expanded="true" />
                 <element signature="e#1035#1036#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ninja_female_dead.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -3648,19 +3638,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/btnjogar.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ic_cenary.jpeg" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/posmobile/br/com/andgraph/AGVector2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/wood.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3952,14 +3929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3970,15 +3939,38 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_male_jump.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_male_dead.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_male_glide.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
-          <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
+          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1004#1005#0" expanded="true" />
