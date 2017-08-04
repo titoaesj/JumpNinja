@@ -21,14 +21,14 @@ public class MainActivity extends AGActivityGame {
         init(this, true);
 
 //        SplashScreen splashScreen = new SplashScreen(this.vrManager);
-//        GameScreen gameScreen = new GameScreen(this.vrManager);
+        GameScreen gameScreen = new GameScreen(this.vrManager);
 //        MenuScreen menuScreen = new MenuScreen(this.vrManager);
-        CreditScreen creditScreen = new CreditScreen(this.vrManager);
+//        CreditScreen creditScreen = new CreditScreen(this.vrManager);
 
 //       vrManager.addScene(splashScreen);
 //       vrManager.addScene(menuScreen);
-//       vrManager.addScene(gameScreen);
-       vrManager.addScene(creditScreen);
+       vrManager.addScene(gameScreen);
+//       vrManager.addScene(creditScreen);
 
     }
 }
