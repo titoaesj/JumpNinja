@@ -1,7 +1,5 @@
 package posmobile.br.com.jumpninja.game;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -119,13 +117,13 @@ public class GameScreen extends AGScene {
         mGameOver.bAutoRender = false;
         mGameOver.bVisible = false;
 
-        mMenuGameOver = createSprite(R.drawable.gameover_menu_button, 1, 1);
+        mMenuGameOver = createSprite(R.drawable.button_menu, 1, 1);
         mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         mMenuGameOver.setScreenPercent(40, 10);
         mMenuGameOver.bAutoRender = false;
         mMenuGameOver.bVisible = false;
 
-        mExitGameOver = createSprite(R.drawable.gameover_exit_button, 1, 1);
+        mExitGameOver = createSprite(R.drawable.button_exit, 1, 1);
         mExitGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2 - mExitGameOver.getSpriteHeight() / 3);
         mExitGameOver.setScreenPercent(40, 10);
         mExitGameOver.bAutoRender = false;

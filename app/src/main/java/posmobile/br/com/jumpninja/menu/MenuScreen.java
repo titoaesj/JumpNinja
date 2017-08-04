@@ -53,19 +53,19 @@ public class MenuScreen extends AGScene {
         titulo.vrPosition.setY(AGScreenManager.iScreenHeight - titulo.getSpriteHeight() * 2);
 
         //Botão de Jogar
-        btnJogar = createSprite(R.drawable.btnjogar,1,1);
+        btnJogar = createSprite(R.drawable.button_game,1,1);
         btnJogar.setScreenPercent(60,10);
         btnJogar.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         btnJogar.vrPosition.setY(AGScreenManager.iScreenHeight - btnJogar.getSpriteHeight() * 4);
 
         //Botão de Créditos
-        btnCreditos = createSprite(R.drawable.btncreditos,1,1);
+        btnCreditos = createSprite(R.drawable.button_about,1,1);
         btnCreditos.setScreenPercent(60,10);
         btnCreditos.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         btnCreditos.vrPosition.setY(AGScreenManager.iScreenHeight - btnJogar.getSpriteHeight() * 6);
 
         //Botão de Doação
-        btnDoacao = createSprite(R.drawable.btndoacao,1,1);
+        btnDoacao = createSprite(R.drawable.button_exit,1,1);
         btnDoacao.setScreenPercent(60,10);
         btnDoacao.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         btnDoacao.vrPosition.setY(AGScreenManager.iScreenHeight - btnJogar.getSpriteHeight() * 8);
