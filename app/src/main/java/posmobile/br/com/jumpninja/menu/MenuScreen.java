@@ -91,7 +91,7 @@ public class MenuScreen extends AGScene {
             }
 
             if (btnCreditos.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
-                vrGameManager.setCurrentScene(3);
+                vrGameManager.setCurrentScene(4);
                 return;
             }
 

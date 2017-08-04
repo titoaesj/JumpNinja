@@ -69,13 +69,13 @@ public class MenuChoice extends AGScene {
             if (maleButton.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
                 Log.d(TAG, "loop: seta male");
                 vrGameManager.setPersonaOption(1);
-                vrGameManager.setCurrentScene(1);
+                vrGameManager.setCurrentScene(3);
                 return;
             }
             if (femaleButton.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
                 Log.d(TAG, "loop: seta female");
                 vrGameManager.setPersonaOption(2);
-                vrGameManager.setCurrentScene(1);
+                vrGameManager.setCurrentScene(3);
                 return;
             }
         }
