@@ -67,7 +67,7 @@ public class GameScreen extends AGScene {
         velocidadeScrol = 1;
 
         //Cria Sprite de background
-        background = createSprite(R.drawable.bg, 1, 1);
+        background = createSprite(R.drawable.background, 1, 1);
         background.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         background.setScreenPercent(125, 100);
 
@@ -105,7 +105,7 @@ public class GameScreen extends AGScene {
 //        }
 
         //Cria o Sprinte do gameOverShow
-        mGameOverBackground = createSprite(R.drawable.gameover_background, 1, 1);
+        mGameOverBackground = createSprite(R.drawable.overlayer_mask_background, 1, 1);
         mGameOverBackground.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         mGameOverBackground.setScreenPercent(100, 100);
         mGameOverBackground.bAutoRender = false;

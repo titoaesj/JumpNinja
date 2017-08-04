@@ -17,6 +17,7 @@ import posmobile.br.com.jumpninja.R;
 public class CreditScreen extends AGScene {
 
     private AGSprite background = null;
+    private AGSprite mascara = null;
     private AGSprite credit = null;
     AGTimer tempoCredit = null;
 
@@ -34,9 +35,13 @@ public class CreditScreen extends AGScene {
     @Override
     public void init() {
         //Cria Sprite de BackGround
-        background = createSprite(R.drawable.credit_background, 1 , 1);
+        background = createSprite(R.drawable.background, 1 , 1);
         background.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
         background.setScreenPercent(100, 100);
+
+        mascara = createSprite(R.drawable.overlayer_mask_background, 1 , 1);
+        mascara.vrPosition.setXY(AGScreenManager.iScreenWidth/2, AGScreenManager.iScreenHeight/2);
+        mascara.setScreenPercent(100, 100);
 
         credit = createSprite(R.drawable.credit, 1 , 1);
         credit.vrPosition.setXY(AGScreenManager.iScreenWidth/2,AGScreenManager.iScreenHeight/2);
