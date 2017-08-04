@@ -1,12 +1,12 @@
 package posmobile.br.com.jumpninja.game;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import posmobile.br.com.andgraph.AGGameManager;
 import posmobile.br.com.andgraph.AGInputManager;
 import posmobile.br.com.andgraph.AGScene;
 import posmobile.br.com.andgraph.AGScreenManager;
+import posmobile.br.com.andgraph.AGSoundManager;
 import posmobile.br.com.andgraph.AGSprite;
 import posmobile.br.com.andgraph.AGTimer;
 import posmobile.br.com.jumpninja.R;
@@ -40,7 +40,7 @@ public class GameScreen extends AGScene {
     //Variaveis de COntrole
     int puloNinja = 0; //Controla o Algoritimo para o pulo do ninja
     boolean scrollMapaAtivo;
-    int velocidadeScrol;
+    int velocidadeScroll;
 
     /*******************************************
      * Name: CAGScene()
@@ -56,6 +56,10 @@ public class GameScreen extends AGScene {
     @Override
     public void init() {
 
+        //Carrega a trilha sonora do jogo usando Music que faz buffer de som
+        AGSoundManager.vrMusic.loadMusic("music_game.mp3", true);
+        AGSoundManager.vrMusic.play();
+
         setSceneBackgroundColor(1.0f, 1.0f, 1.0f);
 
         tempoAcelerometroNinja = new AGTimer(50);
@@ -64,7 +68,7 @@ public class GameScreen extends AGScene {
         plataformas = new ArrayList<>();
 
         scrollMapaAtivo = false;
-        velocidadeScrol = 1;
+        velocidadeScroll = 1;
 
         //Cria Sprite de background
         background = createSprite(R.drawable.background, 1, 1);
@@ -129,9 +133,6 @@ public class GameScreen extends AGScene {
         mExitGameOver.bAutoRender = false;
         mExitGameOver.bVisible = false;
 
-        Random random = new Random();
-
-
         //Cria o Sprite da plataforma Iniciais os 6 primeiros
         for (int i = 1; i <= 6; i++) {
             AGSprite novaPlataforma = createSprite(R.drawable.plataforma, 1, 1);
@@ -191,6 +192,10 @@ public class GameScreen extends AGScene {
 
         if (AGInputManager.vrTouchEvents.screenClicked()) {
             if (mMenuGameOver.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
+
+                //Carrega a trilha sonora do jogo usando Music que faz buffer de som
+                AGSoundManager.vrMusic.loadMusic("music_menu.mp3", true);
+                AGSoundManager.vrMusic.play();
 
                 gameOverHidden();
                 vrGameManager.setCurrentScene(1);
@@ -319,9 +324,9 @@ public class GameScreen extends AGScene {
                 if (plataforma.bRecycled)
                     continue;
 
-                plataforma.vrPosition.fY -= velocidadeScrol;
+                plataforma.vrPosition.fY -= velocidadeScroll;
 
-                if (plataforma.vrPosition.fY < 0 - plataforma.getSpriteHeight() / 2) {
+                if (plataforma.vrPosition.fY < (plataforma.getSpriteHeight() / 2) - (ninja.getSpriteHeight() * 2)) {
                     plataforma.bRecycled = true;
                     plataforma.bVisible = false;
                 }
@@ -335,7 +340,7 @@ public class GameScreen extends AGScene {
 
     private void atualizaMovimentoChao() {
         if (scrollMapaAtivo) {
-            chao.vrPosition.fY -= velocidadeScrol;
+            chao.vrPosition.fY -= velocidadeScroll;
         }
     }
 
@@ -360,7 +365,7 @@ public class GameScreen extends AGScene {
     }
 
     private void verificaGameOver() {
-        if (ninja.vrPosition.fY < ninja.getSpriteHeight() / 2) {
+        if (ninja.vrPosition.fY < 0 - ninja.getSpriteHeight()/2) {
             gameOverShow();
         }
     }

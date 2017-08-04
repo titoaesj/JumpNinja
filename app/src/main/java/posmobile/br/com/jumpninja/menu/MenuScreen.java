@@ -4,6 +4,7 @@ import posmobile.br.com.andgraph.AGGameManager;
 import posmobile.br.com.andgraph.AGInputManager;
 import posmobile.br.com.andgraph.AGScene;
 import posmobile.br.com.andgraph.AGScreenManager;
+import posmobile.br.com.andgraph.AGSoundManager;
 import posmobile.br.com.andgraph.AGSprite;
 
 import posmobile.br.com.jumpninja.R;
@@ -70,6 +71,8 @@ public class MenuScreen extends AGScene {
         btnDoacao.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         btnDoacao.vrPosition.setY(AGScreenManager.iScreenHeight - btnJogar.getSpriteHeight() * 8);
 
+        //Configura o volume da musica, 100% nos canais direito e esquerdo
+        AGSoundManager.vrMusic.setVolume(1.0f, 1.0f);
     }
 
     @Override

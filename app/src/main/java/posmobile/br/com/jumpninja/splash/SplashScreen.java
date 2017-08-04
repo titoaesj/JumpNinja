@@ -1,7 +1,6 @@
 package posmobile.br.com.jumpninja.splash;
 
 import  posmobile.br.com.andgraph.AGGameManager;
-import  posmobile.br.com.andgraph.AGInputManager;
 import posmobile.br.com.andgraph.AGScene;
 import  posmobile.br.com.andgraph.AGScreenManager;
 import  posmobile.br.com.andgraph.AGSoundManager;
@@ -40,6 +39,10 @@ public class SplashScreen extends AGScene {
         title.setScreenPercent(60,10);
         title.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         title.vrPosition.setY(AGScreenManager.iScreenHeight / 2);
+
+        //Carrega a trilha sonora do jogo usando Music que faz buffer de som
+        AGSoundManager.vrMusic.loadMusic("music_menu.mp3", true);
+        AGSoundManager.vrMusic.play();
     }
 
     @Override
