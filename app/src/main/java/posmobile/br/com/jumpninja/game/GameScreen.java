@@ -1,5 +1,7 @@
 package posmobile.br.com.jumpninja.game;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,6 +19,8 @@ import posmobile.br.com.jumpninja.R;
  */
 
 public class GameScreen extends AGScene {
+
+    private static final String TAG = GameScreen.class.getSimpleName();
 
     AGSprite[] placar = new AGSprite[6];
     int tempoPontuacao = 0;
@@ -184,6 +188,7 @@ public class GameScreen extends AGScene {
             atualizaMovimentoPlataformas();
             atualizaMovimentoChao();
             atualizaPlacar();
+            verificaGameOver();
         }
 
         if (AGInputManager.vrTouchEvents.screenClicked()) {
@@ -357,5 +362,11 @@ public class GameScreen extends AGScene {
             return true;
         }
         return false;
+    }
+
+    private void verificaGameOver() {
+        if (ninja.vrPosition.fY < ninja.getSpriteHeight() / 2) {
+            gameOverShow();
+        }
     }
 }
