@@ -140,14 +140,13 @@ public class GameScreen extends AGScene {
     @Override
     public void loop() {
 
-        if (AGInputManager.vrTouchEvents.backButtonClicked()) {
-            vrGameManager.setCurrentScene(1);
-        }
-
         atualizaMovimentoNinja();
         atualizaPuloNinja();
         atualizaPlacar();
 
+        if (AGInputManager.vrTouchEvents.backButtonClicked()) {
+            vrGameManager.setCurrentScene(1);
+        }
     }
 
     /**
