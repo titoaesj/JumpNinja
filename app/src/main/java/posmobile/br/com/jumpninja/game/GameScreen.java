@@ -25,7 +25,6 @@ public class GameScreen extends AGScene {
     AGSprite background = null;
     AGSprite chao = null;
     AGSprite ninja = null;
-    AGSprite shuriken = null;
     ArrayList<AGSprite> plataformas = null;
 
     AGTimer tempoAcelerometroNinja;
@@ -52,18 +51,12 @@ public class GameScreen extends AGScene {
         tempoAcelerometroNinja = new AGTimer(50);
         tempoPuloNinja = new AGTimer(50);
 
-        plataformas = new ArrayList<AGSprite>();
+        plataformas = new ArrayList<>();
 
         //Cria Sprite de background
         background = createSprite(R.drawable.bg, 1, 1);
         background.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         background.setScreenPercent(125, 100);
-
-        //Cria o Sprinte da Shuriken
-        shuriken = createSprite(R.drawable.shuriken,2,3);
-        shuriken.addAnimation(8, true, 0, 4);
-        shuriken.vrPosition.setXY(shuriken.getSpriteHeight() / 3,AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3));
-        shuriken.setScreenPercent(15,13);
 
         //Cria o Sprite do Ninja
         if (vrGameManager.getPersonaOption() == 1) {
@@ -77,25 +70,23 @@ public class GameScreen extends AGScene {
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
         ninja.bAutoRender = false;
 
-        /**
-         * Configura os Sprites do placar
-         */
-        int multiplicador = 1;
-        for (int pos = 0; pos < placar.length; pos++) {
-            placar[pos] = createSprite(R.drawable.placar, 4, 4);
-            placar[pos].setScreenPercent(10, 10);
-            placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3);
-            placar[pos].vrPosition.fX = 20 + multiplicador * placar[pos].getSpriteWidth();
-            placar[pos].bAutoRender = false;
-            multiplicador++;
-
-            for (int i = 0; i < 10; i++) {
-                placar[pos].addAnimation(1, false, i);
-            }
-
-        }
-
-        Random random = new Random();
+//        /**
+//         * Configura os Sprites do placar
+//         */
+//        int multiplicador = 1;
+//        for (int pos = 0; pos < placar.length; pos++) {
+//            placar[pos] = createSprite(R.drawable.placar, 4, 4);
+//            placar[pos].setScreenPercent(10, 10);
+//            placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3);
+//            placar[pos].vrPosition.fX = 20 + multiplicador * placar[pos].getSpriteWidth();
+//            placar[pos].bAutoRender = false;
+//            multiplicador++;
+//
+//            for (int i = 0; i < 10; i++) {
+//                placar[pos].addAnimation(1, false, i);
+//            }
+//
+//        }
 
         //Cria o Sprite da plataforma Iniciais.
         for (int i = 1; i <= 8; i++) {
@@ -112,10 +103,10 @@ public class GameScreen extends AGScene {
             plataformas.add(novaPlataforma);
         }
 
-        //Teste de plataforma no Chão
-        chao = createSprite(R.drawable.plataforma, 1, 1);
-        chao.setScreenPercent(110, 5);
-        chao.vrPosition.setXY(chao.getSpriteWidth()/2 - 10, 0);
+        //Cria Sprits do chao
+        chao = createSprite(R.drawable.tiles, 1, 1);
+        chao.vrPosition.setXY(AGScreenManager.iScreenWidth/2, 0);
+        chao.setScreenPercent(100, 5);
     }
 
     @Override
