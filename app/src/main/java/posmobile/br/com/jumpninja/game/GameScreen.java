@@ -71,7 +71,7 @@ public class GameScreen extends AGScene {
         } else if (vrGameManager.getPersonaOption() == 2) {
             ninja = createSprite(R.drawable.ninja_female_jump, 4, 3);
         }
-        ninja.addAnimation(10, false, 0, 10);
+        ninja.addAnimation(10, false, 0, 9);
         ninja.setScreenPercent(20, 15);
         ninja.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);

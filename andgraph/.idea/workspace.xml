@@ -10,12 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0b5d28f-d1ca-4833-b390-7c7e1cda8437" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/posmobile/br/com/andgraph/AGActivityGame.java" afterPath="$PROJECT_DIR$/src/main/java/posmobile/br/com/andgraph/AGActivityGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/posmobile/br/com/andgraph/AGGameManager.java" afterPath="$PROJECT_DIR$/src/main/java/posmobile/br/com/andgraph/AGGameManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/MenuChoice.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/MenuChoice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/menu/MenuScreen.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/menu/MenuScreen.java" />
     </list>
     <ignored path="andgraph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +45,8 @@
       <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+            <state relative-caret-position="255">
+              <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1178#1179#0" expanded="true" />
@@ -4017,8 +4012,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+        <state relative-caret-position="255">
+          <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1178#1179#0" expanded="true" />
