@@ -30,7 +30,10 @@ public class GameScreen extends AGScene {
     AGTimer tempoAcelerometroNinja;
     AGTimer tempoPuloNinja;
 
-    int puloNinja = 0;
+    //Variaveis de COntrole
+    int puloNinja = 0; //Controla o Algoritimo para o pulo do ninja
+    boolean scrollMapaAtivo;
+    int velocidadeScrol;
 
     /*******************************************
      * Name: CAGScene()
@@ -52,6 +55,9 @@ public class GameScreen extends AGScene {
         tempoPuloNinja = new AGTimer(50);
 
         plataformas = new ArrayList<>();
+
+        scrollMapaAtivo = false;
+        velocidadeScrol = 1;
 
         //Cria Sprite de background
         background = createSprite(R.drawable.bg, 1, 1);
@@ -88,24 +94,24 @@ public class GameScreen extends AGScene {
 //
 //        }
 
-        //Cria o Sprite da plataforma Iniciais.
-        for (int i = 1; i <= 8; i++) {
+        //Cria o Sprite da plataforma Iniciais os 6 primeiros
+        for (int i = 1; i <= 6; i++) {
             AGSprite novaPlataforma = createSprite(R.drawable.plataforma, 1, 1);
             novaPlataforma.setScreenPercent(33, 5);
             if (i == 1 || i == 5) {
-                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth - novaPlataforma.getSpriteWidth()/2 );
-            } else if(i == 2 || i == 4){
-                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth/2);
-            } else if(i == 3 || i == 6){
-                novaPlataforma.vrPosition.setX(0 + novaPlataforma.getSpriteWidth()/2);
+                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth - novaPlataforma.getSpriteWidth() / 2);
+            } else if (i == 2 || i == 4) {
+                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
+            } else if (i == 3 || i == 6) {
+                novaPlataforma.vrPosition.setX(0 + novaPlataforma.getSpriteWidth() / 2);
             }
             novaPlataforma.vrPosition.setY(ninja.getSpriteHeight() * i);
             plataformas.add(novaPlataforma);
         }
 
         //Cria Sprits do chao
-        chao = createSprite(R.drawable.tiles, 1, 1);
-        chao.vrPosition.setXY(AGScreenManager.iScreenWidth/2, 0);
+        chao = createSprite(R.drawable.chao, 1, 1);
+        chao.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, 0);
         chao.setScreenPercent(100, 5);
     }
 
@@ -113,9 +119,9 @@ public class GameScreen extends AGScene {
     public void render() {
         super.render();
         ninja.render();
-        for (AGSprite digito : placar) {
-            digito.render();
-        }
+//        for (AGSprite digito : placar) {
+//            digito.render();
+//        }
     }
 
     @Override
@@ -133,6 +139,8 @@ public class GameScreen extends AGScene {
 
         atualizaMovimentoNinja();
         atualizaPuloNinja();
+        atualizaMovimentoPlataformas();
+        atualizaMovimentoChao();
         atualizaPlacar();
 
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
@@ -174,8 +182,6 @@ public class GameScreen extends AGScene {
             placar[0].setCurrentAnimation((pontuacao % 1000000) / 100000);
         }
     }
-
-
 
     /**
      * Método que atualiza a posicao do heroi de acordo com o acelerômetro
@@ -222,11 +228,41 @@ public class GameScreen extends AGScene {
             } else {
                 ninja.vrPosition.setY(ninja.vrPosition.getY() - alturaPulo);
             }
-            if(ninja.getCurrentAnimation().getCurrentFrame() != ninja.getCurrentAnimation().getTotalFrames()){
+            if (ninja.getCurrentAnimation().getCurrentFrame() != ninja.getCurrentAnimation().getTotalFrames()) {
                 ninja.getCurrentAnimation().update();
             }
             puloNinja++;
 
+        }
+    }
+
+    private void atualizaMovimentoPlataformas() {
+        if (scrollMapaAtivo) {
+            for (AGSprite plataforma : plataformas) {
+                if (plataforma.bRecycled)
+                    continue;
+
+                plataforma.vrPosition.fY -= velocidadeScrol;
+
+                if (plataforma.vrPosition.fY < 0 - plataforma.getSpriteHeight() / 2) {
+                    plataforma.bRecycled = true;
+                    plataforma.bVisible = false;
+                }
+            }
+        } else if (!scrollMapaAtivo) {
+            if (ninja.vrPosition.getY() >= AGScreenManager.iScreenHeight / 2) {
+                scrollMapaAtivo = true;
+            }
+        }
+    }
+
+    private void atualizaMovimentoChao() {
+        if (scrollMapaAtivo) {
+            chao.vrPosition.fY -= velocidadeScrol;
+            if (chao.vrPosition.fY < 0 - chao.getSpriteHeight() / 2) {
+                chao.bRecycled = true;
+                chao.bVisible = false;
+            }
         }
     }
 
@@ -243,8 +279,8 @@ public class GameScreen extends AGScene {
         return false;
     }
 
-    private boolean verificaColisaoChao(){
-        if (ninja.collide(chao)){
+    private boolean verificaColisaoChao() {
+        if (ninja.collide(chao)) {
             return true;
         }
         return false;
