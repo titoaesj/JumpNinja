@@ -21,11 +21,15 @@ public class GameScreen extends AGScene {
     AGSprite[] placar = new AGSprite[6];
     int tempoPontuacao = 0;
     int pontuacao = 0;
+    Boolean paused = false;
 
     AGSprite background = null;
     AGSprite chao = null;
     AGSprite ninja = null;
-    AGSprite shuriken = null;
+    AGSprite mGameOverBackground = null;
+    AGSprite mGameOver = null;
+    AGSprite mMenuGameOver = null;
+    AGSprite mExitGameOver = null;
     ArrayList<AGSprite> plataformas = null;
 
     AGTimer tempoAcelerometroNinja;
@@ -59,17 +63,13 @@ public class GameScreen extends AGScene {
         background.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         background.setScreenPercent(125, 100);
 
-        //Cria o Sprinte da Shuriken
-        shuriken = createSprite(R.drawable.shuriken,2,3);
-        shuriken.addAnimation(8, true, 0, 4);
-        shuriken.vrPosition.setXY(shuriken.getSpriteHeight() / 3,AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3));
-        shuriken.setScreenPercent(15,13);
-
         //Cria o Sprite do Ninja
         if (vrGameManager.getPersonaOption() == 1) {
             ninja = createSprite(R.drawable.ninja_male_jump, 4, 3);
         } else if (vrGameManager.getPersonaOption() == 2) {
             ninja = createSprite(R.drawable.ninja_female_jump, 4, 3);
+        } else {
+            ninja = createSprite(R.drawable.ninja_male_jump, 4, 3);
         }
         ninja.addAnimation(10, false, 0, 9);
         ninja.setScreenPercent(20, 15);
@@ -84,7 +84,7 @@ public class GameScreen extends AGScene {
         for (int pos = 0; pos < placar.length; pos++) {
             placar[pos] = createSprite(R.drawable.placar, 4, 4);
             placar[pos].setScreenPercent(10, 10);
-            placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3);
+            placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight;
             placar[pos].vrPosition.fX = 20 + multiplicador * placar[pos].getSpriteWidth();
             placar[pos].bAutoRender = false;
             multiplicador++;
@@ -92,8 +92,32 @@ public class GameScreen extends AGScene {
             for (int i = 0; i < 10; i++) {
                 placar[pos].addAnimation(1, false, i);
             }
-
         }
+
+        //Cria o Sprinte do gameOverShow
+        mGameOverBackground = createSprite(R.drawable.gameover_background,1,1);
+        mGameOverBackground.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2);
+        mGameOverBackground.setScreenPercent(100,100);
+        mGameOverBackground.bAutoRender =false;
+        mGameOverBackground.bVisible =false;
+
+        mGameOver = createSprite(R.drawable.gameover,1,1);
+        mGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2);
+        mGameOver.setScreenPercent(80,60);
+        mGameOver.bAutoRender =false;
+        mGameOver.bVisible =false;
+
+        mMenuGameOver = createSprite(R.drawable.gameover_menu_button,1,1);
+        mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2);
+        mMenuGameOver.setScreenPercent(40,10);
+        mMenuGameOver.bAutoRender =false;
+        mMenuGameOver.bVisible =false;
+
+        mExitGameOver = createSprite(R.drawable.gameover_exit_button  ,1,1);
+        mExitGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2 - mExitGameOver.getSpriteHeight() / 3 );
+        mExitGameOver.setScreenPercent(40,10);
+        mExitGameOver.bAutoRender =false;
+        mExitGameOver.bVisible =false;
 
         Random random = new Random();
 
@@ -122,6 +146,10 @@ public class GameScreen extends AGScene {
     public void render() {
         super.render();
         ninja.render();
+        mGameOverBackground.render();
+        mGameOver.render();
+        mMenuGameOver.render();
+        mExitGameOver.render();
         for (AGSprite digito : placar) {
             digito.render();
         }
@@ -140,13 +168,46 @@ public class GameScreen extends AGScene {
     @Override
     public void loop() {
 
-        atualizaMovimentoNinja();
-        atualizaPuloNinja();
-        atualizaPlacar();
+        if (! paused) {
+            atualizaMovimentoNinja();
+            atualizaPuloNinja();
+            atualizaPlacar();
+        }
 
+        if (AGInputManager.vrTouchEvents.screenClicked()) {
+            if (mMenuGameOver.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
+
+                gameOverHidden();
+                vrGameManager.setCurrentScene(1);
+                return;
+            }
+            if (mExitGameOver.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
+                gameOverHidden();
+                vrGameManager.vrActivity.finish();
+                return;
+            }
+
+        }
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
+            return;
         }
+    }
+
+    private void gameOverShow() {
+        paused = true;
+        mGameOverBackground.bVisible = true;
+        mGameOver.bVisible = true;
+        mMenuGameOver.bVisible = true;
+        mExitGameOver.bVisible = true;
+    }
+
+    private void gameOverHidden() {
+        paused = false;
+        mGameOverBackground.bVisible = false;
+        mGameOver.bVisible = false;
+        mMenuGameOver.bVisible = false;
+        mExitGameOver.bVisible = false;
     }
 
     /**
@@ -184,8 +245,6 @@ public class GameScreen extends AGScene {
         }
     }
 
-
-
     /**
      * Método que atualiza a posicao do heroi de acordo com o acelerômetro
      */
@@ -217,6 +276,8 @@ public class GameScreen extends AGScene {
 
         if (tempoPuloNinja.isTimeEnded()) {
             tempoPuloNinja.restart();
+
+            gameOverShow();
 
             //Reinicia o Pulo
             if (verificaColisaoPlataformas() || verificaColisaoChao()) {
