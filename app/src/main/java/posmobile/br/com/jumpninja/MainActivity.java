@@ -11,8 +11,6 @@ import android.os.Bundle;
 
 public class MainActivity extends AGActivityGame {
 
-    private int personageOP = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

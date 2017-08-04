@@ -1,6 +1,7 @@
 package posmobile.br.com.jumpninja.game;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import posmobile.br.com.andgraph.AGGameManager;
 import posmobile.br.com.andgraph.AGInputManager;
@@ -22,6 +23,7 @@ public class GameScreen extends AGScene {
     int pontuacao = 0;
 
     AGSprite background = null;
+    AGSprite chao = null;
     AGSprite ninja = null;
     AGSprite shuriken = null;
     ArrayList<AGSprite> plataformas = null;
@@ -53,9 +55,9 @@ public class GameScreen extends AGScene {
         plataformas = new ArrayList<AGSprite>();
 
         //Cria Sprite de background
-        background = createSprite(R.drawable.background, 1, 1);
+        background = createSprite(R.drawable.bg, 1, 1);
         background.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
-        background.setScreenPercent(100, 100);
+        background.setScreenPercent(125, 100);
 
         //Cria o Sprinte da Shuriken
         shuriken = createSprite(R.drawable.shuriken,2,3);
@@ -89,41 +91,27 @@ public class GameScreen extends AGScene {
 
         }
 
+        Random random = new Random();
+
         //Cria o Sprite da plataforma Iniciais.
         for (int i = 1; i <= 8; i++) {
-            AGSprite novaPlataforma = createSprite(R.drawable.wood, 1, 1);
-            novaPlataforma.setScreenPercent(75, 5);
-            if (i % 2 == 0) {
-                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth);
-            } else {
-                novaPlataforma.vrPosition.setX(0);
+            AGSprite novaPlataforma = createSprite(R.drawable.plataforma, 1, 1);
+            novaPlataforma.setScreenPercent(33, 5);
+            if (i == 1 || i == 5) {
+                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth - novaPlataforma.getSpriteWidth()/2 );
+            } else if(i == 2 || i == 4){
+                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth/2);
+            } else if(i == 3 || i == 6){
+                novaPlataforma.vrPosition.setX(0 + novaPlataforma.getSpriteWidth()/2);
             }
             novaPlataforma.vrPosition.setY(ninja.getSpriteHeight() * i);
             plataformas.add(novaPlataforma);
         }
 
         //Teste de plataforma no Chão
-        AGSprite novaPlataforma1 = createSprite(R.drawable.wood, 1, 1);
-        novaPlataforma1.setScreenPercent(75, 5);
-        novaPlataforma1.vrPosition.setX(AGScreenManager.iScreenWidth);
-        novaPlataforma1.vrPosition.setY(0);
-
-        //Teste de plataforma no Chão
-        AGSprite novaPlataforma2 = createSprite(R.drawable.wood, 1, 1);
-        novaPlataforma2.setScreenPercent(75, 5);
-        novaPlataforma2.vrPosition.setX(AGScreenManager.iScreenWidth/2);
-        novaPlataforma2.vrPosition.setY(0);
-
-        //Teste de plataforma no Chão
-        AGSprite novaPlataforma3 = createSprite(R.drawable.wood, 1, 1);
-        novaPlataforma3.setScreenPercent(75, 5);
-        novaPlataforma3.vrPosition.setX(0);
-        novaPlataforma3.vrPosition.setY(0);
-
-        plataformas.add(novaPlataforma1);
-        plataformas.add(novaPlataforma2);
-        plataformas.add(novaPlataforma3);
-
+        chao = createSprite(R.drawable.plataforma, 1, 1);
+        chao.setScreenPercent(110, 5);
+        chao.vrPosition.setXY(chao.getSpriteWidth()/2 - 10, 0);
     }
 
     @Override
@@ -193,6 +181,8 @@ public class GameScreen extends AGScene {
         }
     }
 
+
+
     /**
      * Método que atualiza a posicao do heroi de acordo com o acelerômetro
      */
@@ -226,7 +216,7 @@ public class GameScreen extends AGScene {
             tempoPuloNinja.restart();
 
             //Reinicia o Pulo
-            if (verificaColisaoPlataformas()) {
+            if (verificaColisaoPlataformas() || verificaColisaoChao()) {
                 ninja.getCurrentAnimation().restart();
                 puloNinja = 0;
             }
@@ -259,25 +249,10 @@ public class GameScreen extends AGScene {
         return false;
     }
 
-    private void criaPlataforma() {
-        //TENTA RECICLAR UMA BALA CRIADA ANTERIORMENTE
-        if (AGInputManager.vrTouchEvents.screenClicked()) {
-
-            for (AGSprite plataforma : plataformas) {
-                if (plataforma.bRecycled) {
-                    plataforma.bRecycled = false;
-                    plataforma.bVisible = true;
-//                    plataforma.vrPosition.fX = canhao.vrPosition.fX;
-//                    plataforma.vrPosition.fY = canhao.getSpriteHeight() + plataforma.getSpriteHeight() / 2;
-                    return;
-                }
-            }
-
-            AGSprite novaPlataforma = createSprite(R.drawable.wood, 1, 1);
-            novaPlataforma.setScreenPercent(8, 5);
-//            novaBala.vrPosition.fX = canhao.vrPosition.fX;
-//            novaBala.vrPosition.fY = canhao.getSpriteHeight() + novaBala.getSpriteHeight() / 2;
-            plataformas.add(novaPlataforma);
+    private boolean verificaColisaoChao(){
+        if (ninja.collide(chao)){
+            return true;
         }
+        return false;
     }
 }
