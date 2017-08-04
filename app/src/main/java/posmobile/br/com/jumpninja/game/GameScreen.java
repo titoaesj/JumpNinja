@@ -261,7 +261,6 @@ public class GameScreen extends AGScene {
             chao.vrPosition.fY -= velocidadeScrol;
             if (chao.vrPosition.fY < 0 - chao.getSpriteHeight() / 2) {
                 chao.bRecycled = true;
-                chao.bVisible = false;
             }
         }
     }
