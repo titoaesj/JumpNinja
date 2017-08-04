@@ -336,9 +336,6 @@ public class GameScreen extends AGScene {
     private void atualizaMovimentoChao() {
         if (scrollMapaAtivo) {
             chao.vrPosition.fY -= velocidadeScrol;
-            if (chao.vrPosition.fY < 0 - chao.getSpriteHeight() / 2) {
-                chao.bRecycled = true;
-            }
         }
     }
 
