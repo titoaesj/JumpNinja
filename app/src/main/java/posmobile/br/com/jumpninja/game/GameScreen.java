@@ -35,7 +35,10 @@ public class GameScreen extends AGScene {
     AGTimer tempoAcelerometroNinja;
     AGTimer tempoPuloNinja;
 
-    int puloNinja = 0;
+    //Variaveis de COntrole
+    int puloNinja = 0; //Controla o Algoritimo para o pulo do ninja
+    boolean scrollMapaAtivo;
+    int velocidadeScrol;
 
     /*******************************************
      * Name: CAGScene()
@@ -56,7 +59,10 @@ public class GameScreen extends AGScene {
         tempoAcelerometroNinja = new AGTimer(50);
         tempoPuloNinja = new AGTimer(50);
 
-        plataformas = new ArrayList<AGSprite>();
+        plataformas = new ArrayList<>();
+
+        scrollMapaAtivo = false;
+        velocidadeScrol = 1;
 
         //Cria Sprite de background
         background = createSprite(R.drawable.bg, 1, 1);
@@ -77,69 +83,72 @@ public class GameScreen extends AGScene {
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
         ninja.bAutoRender = false;
 
-        /**
-         * Configura os Sprites do placar
-         */
-        int multiplicador = 1;
-        for (int pos = 0; pos < placar.length; pos++) {
-            placar[pos] = createSprite(R.drawable.placar, 4, 4);
-            placar[pos].setScreenPercent(10, 10);
-            placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight;
-            placar[pos].vrPosition.fX = 20 + multiplicador * placar[pos].getSpriteWidth();
-            placar[pos].bAutoRender = false;
-            multiplicador++;
 
-            for (int i = 0; i < 10; i++) {
-                placar[pos].addAnimation(1, false, i);
-            }
-        }
+        //        /**
+//         * Configura os Sprites do placar
+//         */
+//        int multiplicador = 1;
+//        for (int pos = 0; pos < placar.length; pos++) {
+//            placar[pos] = createSprite(R.drawable.placar, 4, 4);
+//            placar[pos].setScreenPercent(10, 10);
+//            placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3);
+//            placar[pos].vrPosition.fX = 20 + multiplicador * placar[pos].getSpriteWidth();
+//            placar[pos].bAutoRender = false;
+//            multiplicador++;
+//
+//            for (int i = 0; i < 10; i++) {
+//                placar[pos].addAnimation(1, false, i);
+//            }
+//
+//        }
 
         //Cria o Sprinte do gameOverShow
-        mGameOverBackground = createSprite(R.drawable.gameover_background,1,1);
-        mGameOverBackground.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2);
-        mGameOverBackground.setScreenPercent(100,100);
-        mGameOverBackground.bAutoRender =false;
-        mGameOverBackground.bVisible =false;
+        mGameOverBackground = createSprite(R.drawable.gameover_background, 1, 1);
+        mGameOverBackground.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
+        mGameOverBackground.setScreenPercent(100, 100);
+        mGameOverBackground.bAutoRender = false;
+        mGameOverBackground.bVisible = false;
 
-        mGameOver = createSprite(R.drawable.gameover,1,1);
-        mGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2);
-        mGameOver.setScreenPercent(80,60);
-        mGameOver.bAutoRender =false;
-        mGameOver.bVisible =false;
+        mGameOver = createSprite(R.drawable.gameover, 1, 1);
+        mGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
+        mGameOver.setScreenPercent(80, 60);
+        mGameOver.bAutoRender = false;
+        mGameOver.bVisible = false;
 
-        mMenuGameOver = createSprite(R.drawable.gameover_menu_button,1,1);
-        mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2);
-        mMenuGameOver.setScreenPercent(40,10);
-        mMenuGameOver.bAutoRender =false;
-        mMenuGameOver.bVisible =false;
+        mMenuGameOver = createSprite(R.drawable.gameover_menu_button, 1, 1);
+        mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
+        mMenuGameOver.setScreenPercent(40, 10);
+        mMenuGameOver.bAutoRender = false;
+        mMenuGameOver.bVisible = false;
 
-        mExitGameOver = createSprite(R.drawable.gameover_exit_button  ,1,1);
-        mExitGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,AGScreenManager.iScreenHeight/2 - mExitGameOver.getSpriteHeight() / 3 );
-        mExitGameOver.setScreenPercent(40,10);
-        mExitGameOver.bAutoRender =false;
-        mExitGameOver.bVisible =false;
+        mExitGameOver = createSprite(R.drawable.gameover_exit_button, 1, 1);
+        mExitGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2 - mExitGameOver.getSpriteHeight() / 3);
+        mExitGameOver.setScreenPercent(40, 10);
+        mExitGameOver.bAutoRender = false;
+        mExitGameOver.bVisible = false;
 
         Random random = new Random();
 
-        //Cria o Sprite da plataforma Iniciais.
-        for (int i = 1; i <= 8; i++) {
+
+        //Cria o Sprite da plataforma Iniciais os 6 primeiros
+        for (int i = 1; i <= 6; i++) {
             AGSprite novaPlataforma = createSprite(R.drawable.plataforma, 1, 1);
             novaPlataforma.setScreenPercent(33, 5);
             if (i == 1 || i == 5) {
-                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth - novaPlataforma.getSpriteWidth()/2 );
-            } else if(i == 2 || i == 4){
-                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth/2);
-            } else if(i == 3 || i == 6){
-                novaPlataforma.vrPosition.setX(0 + novaPlataforma.getSpriteWidth()/2);
+                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth - novaPlataforma.getSpriteWidth() / 2);
+            } else if (i == 2 || i == 4) {
+                novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
+            } else if (i == 3 || i == 6) {
+                novaPlataforma.vrPosition.setX(0 + novaPlataforma.getSpriteWidth() / 2);
             }
             novaPlataforma.vrPosition.setY(ninja.getSpriteHeight() * i);
             plataformas.add(novaPlataforma);
         }
 
-        //Teste de plataforma no Chão
-        chao = createSprite(R.drawable.plataforma, 1, 1);
-        chao.setScreenPercent(110, 5);
-        chao.vrPosition.setXY(chao.getSpriteWidth()/2 - 10, 0);
+        //Cria Sprits do chao
+        chao = createSprite(R.drawable.chao, 1, 1);
+        chao.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, 0);
+        chao.setScreenPercent(100, 5);
     }
 
     @Override
@@ -150,9 +159,9 @@ public class GameScreen extends AGScene {
         mGameOver.render();
         mMenuGameOver.render();
         mExitGameOver.render();
-        for (AGSprite digito : placar) {
-            digito.render();
-        }
+//        for (AGSprite digito : placar) {
+//            digito.render();
+//        }
     }
 
     @Override
@@ -168,9 +177,12 @@ public class GameScreen extends AGScene {
     @Override
     public void loop() {
 
-        if (! paused) {
+
+        if (!paused) {
             atualizaMovimentoNinja();
             atualizaPuloNinja();
+            atualizaMovimentoPlataformas();
+            atualizaMovimentoChao();
             atualizaPlacar();
         }
 
@@ -277,8 +289,6 @@ public class GameScreen extends AGScene {
         if (tempoPuloNinja.isTimeEnded()) {
             tempoPuloNinja.restart();
 
-            gameOverShow();
-
             //Reinicia o Pulo
             if (verificaColisaoPlataformas() || verificaColisaoChao()) {
                 ninja.getCurrentAnimation().restart();
@@ -292,11 +302,40 @@ public class GameScreen extends AGScene {
             } else {
                 ninja.vrPosition.setY(ninja.vrPosition.getY() - alturaPulo);
             }
-            if(ninja.getCurrentAnimation().getCurrentFrame() != ninja.getCurrentAnimation().getTotalFrames()){
+            if (ninja.getCurrentAnimation().getCurrentFrame() != ninja.getCurrentAnimation().getTotalFrames()) {
                 ninja.getCurrentAnimation().update();
             }
             puloNinja++;
 
+        }
+    }
+
+    private void atualizaMovimentoPlataformas() {
+        if (scrollMapaAtivo) {
+            for (AGSprite plataforma : plataformas) {
+                if (plataforma.bRecycled)
+                    continue;
+
+                plataforma.vrPosition.fY -= velocidadeScrol;
+
+                if (plataforma.vrPosition.fY < 0 - plataforma.getSpriteHeight() / 2) {
+                    plataforma.bRecycled = true;
+                    plataforma.bVisible = false;
+                }
+            }
+        } else if (!scrollMapaAtivo) {
+            if (ninja.vrPosition.getY() >= AGScreenManager.iScreenHeight / 2) {
+                scrollMapaAtivo = true;
+            }
+        }
+    }
+
+    private void atualizaMovimentoChao() {
+        if (scrollMapaAtivo) {
+            chao.vrPosition.fY -= velocidadeScrol;
+            if (chao.vrPosition.fY < 0 - chao.getSpriteHeight() / 2) {
+                chao.bRecycled = true;
+            }
         }
     }
 
@@ -313,8 +352,8 @@ public class GameScreen extends AGScene {
         return false;
     }
 
-    private boolean verificaColisaoChao(){
-        if (ninja.collide(chao)){
+    private boolean verificaColisaoChao() {
+        if (ninja.collide(chao)) {
             return true;
         }
         return false;

@@ -10,6 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0b5d28f-d1ca-4833-b390-7c7e1cda8437" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/chao.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/shuriken.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/tiles.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
     </list>
@@ -46,16 +49,12 @@
       <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
+            <state relative-caret-position="149">
+              <caret line="289" column="37" selection-start-line="289" selection-start-column="37" selection-end-line="289" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#gameOverShow#0;class#GameScreen#0" expanded="false" />
-                <element signature="method#gameOverHidden#0;class#GameScreen#0" expanded="false" />
-                <element signature="method#atualizaPlacar#0;class#GameScreen#0" expanded="false" />
-                <element signature="method#atualizaMovimentoNinja#0;class#GameScreen#0" expanded="false" />
-                <element signature="method#atualizaPuloNinja#0;class#GameScreen#0" expanded="false" />
-                <element signature="method#verificaColisaoPlataformas#0;class#GameScreen#0" expanded="false" />
+                <element signature="e#1445#1446#0" expanded="true" />
+                <element signature="e#1476#1477#0" expanded="true" />
                 <element signature="method#verificaColisaoChao#0;class#GameScreen#0" expanded="false" />
               </folding>
             </state>
@@ -3701,12 +3700,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#gameOverShow#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#gameOverHidden#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPlacar#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaMovimentoNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPuloNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#verificaColisaoPlataformas#0;class#GameScreen#0" expanded="false" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
             <element signature="method#verificaColisaoChao#0;class#GameScreen#0" expanded="false" />
           </folding>
         </state>
@@ -3718,12 +3713,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#gameOverShow#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#gameOverHidden#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPlacar#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaMovimentoNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPuloNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#verificaColisaoPlataformas#0;class#GameScreen#0" expanded="false" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
             <element signature="method#verificaColisaoChao#0;class#GameScreen#0" expanded="false" />
           </folding>
         </state>
@@ -3735,12 +3726,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#gameOverShow#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#gameOverHidden#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPlacar#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaMovimentoNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPuloNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#verificaColisaoPlataformas#0;class#GameScreen#0" expanded="false" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
             <element signature="method#verificaColisaoChao#0;class#GameScreen#0" expanded="false" />
           </folding>
         </state>
@@ -3767,12 +3754,8 @@
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#gameOverShow#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#gameOverHidden#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPlacar#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaMovimentoNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPuloNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#verificaColisaoPlataformas#0;class#GameScreen#0" expanded="false" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
             <element signature="method#verificaColisaoChao#0;class#GameScreen#0" expanded="false" />
           </folding>
         </state>
@@ -4018,16 +4001,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
+        <state relative-caret-position="149">
+          <caret line="289" column="37" selection-start-line="289" selection-start-column="37" selection-end-line="289" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#gameOverShow#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#gameOverHidden#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPlacar#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaMovimentoNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#atualizaPuloNinja#0;class#GameScreen#0" expanded="false" />
-            <element signature="method#verificaColisaoPlataformas#0;class#GameScreen#0" expanded="false" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
             <element signature="method#verificaColisaoChao#0;class#GameScreen#0" expanded="false" />
           </folding>
         </state>
