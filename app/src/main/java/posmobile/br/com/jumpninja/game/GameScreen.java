@@ -17,8 +17,13 @@ import posmobile.br.com.jumpninja.R;
 
 public class GameScreen extends AGScene {
 
+    AGSprite[] placar = new AGSprite[6];
+    int tempoPontuacao = 0;
+    int pontuacao = 0;
+
     AGSprite background = null;
     AGSprite ninja = null;
+    AGSprite shuriken = null;
     ArrayList<AGSprite> plataformas = null;
 
     AGTimer tempoAcelerometroNinja;
@@ -52,6 +57,12 @@ public class GameScreen extends AGScene {
         background.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         background.setScreenPercent(100, 100);
 
+        //Cria o Sprinte da Shuriken
+        shuriken = createSprite(R.drawable.shuriken,2,3);
+        shuriken.addAnimation(8, true, 0, 4);
+        shuriken.vrPosition.setXY(shuriken.getSpriteHeight() / 3,AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3));
+        shuriken.setScreenPercent(15,13);
+
         //Cria o Sprite do Ninja
         ninja = createSprite(R.drawable.ninja_male_jump, 4, 3);
         ninja.addAnimation(10, false, 0, 10);
@@ -59,6 +70,24 @@ public class GameScreen extends AGScene {
         ninja.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         ninja.vrPosition.setY(ninja.getSpriteHeight() / 2);
         ninja.bAutoRender = false;
+
+        /**
+         * Configura os Sprites do placar
+         */
+        int multiplicador = 1;
+        for (int pos = 0; pos < placar.length; pos++) {
+            placar[pos] = createSprite(R.drawable.fonte, 4, 4);
+            placar[pos].setScreenPercent(10, 10);
+            placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3);
+            placar[pos].vrPosition.fX = 20 + multiplicador * placar[pos].getSpriteWidth();
+            placar[pos].bAutoRender = false;
+            multiplicador++;
+
+            for (int i = 0; i < 10; i++) {
+                placar[pos].addAnimation(1, false, i);
+            }
+
+        }
 
         //Cria o Sprite da plataforma Iniciais.
         for (int i = 1; i <= 8; i++) {
@@ -101,6 +130,9 @@ public class GameScreen extends AGScene {
     public void render() {
         super.render();
         ninja.render();
+        for (AGSprite digito : placar) {
+            digito.render();
+        }
     }
 
     @Override
@@ -115,11 +147,49 @@ public class GameScreen extends AGScene {
 
     @Override
     public void loop() {
-        atualizaMovimentoNinja();
-        atualizaPuloNinja();
 
         if (AGInputManager.vrTouchEvents.backButtonClicked()) {
             vrGameManager.setCurrentScene(1);
+        }
+
+        atualizaMovimentoNinja();
+        atualizaPuloNinja();
+        atualizaPlacar();
+
+    }
+
+    /**
+     * Método para atualizar placar
+     */
+    private void atualizaPlacar() {
+
+        if (tempoPontuacao > 0) {
+
+            for (AGSprite digiter : placar) {
+                digiter.bVisible = !digiter.bVisible;
+            }
+
+            tempoPontuacao--;
+            pontuacao++;
+        }
+
+        if (placar != null && placar[5] != null) {
+            placar[5].setCurrentAnimation(pontuacao % 10);
+        }
+        if (placar != null && placar[4] != null) {
+            placar[4].setCurrentAnimation((pontuacao % 100) / 10);
+        }
+        if (placar != null && placar[3] != null) {
+            placar[3].setCurrentAnimation((pontuacao % 1000) / 100);
+        }
+        if (placar != null && placar[2] != null) {
+            placar[2].setCurrentAnimation((pontuacao % 10000) / 1000);
+        }
+        if (placar != null && placar[1] != null) {
+            placar[1].setCurrentAnimation((pontuacao % 100000) / 10000);
+        }
+        if (placar != null && placar[0] != null) {
+            placar[0].setCurrentAnimation((pontuacao % 1000000) / 100000);
         }
     }
 
