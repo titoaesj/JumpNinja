@@ -23,6 +23,14 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class AGGameManager implements Renderer
 {
+
+	/**
+	 * Game option
+	 * 1 = male
+	 * 2 = female
+	 */
+	protected int personaOption = -1;
+
 	//Attibutes
 	public Activity vrActivity = null;
 	public static GL10 vrOpenGL = null;
@@ -31,6 +39,15 @@ public class AGGameManager implements Renderer
 	private int FRAME_SIZE = 1;
 	private int iPause = 20;
 	private AGScene vrCurrentScene = null;
+
+
+	public void setPersonaOption(int personaOption) {
+		this.personaOption = personaOption;
+	}
+
+	public int getPersonaOption() {
+		return personaOption;
+	}
 	
 	/********************************************
 	* Name: AGGameManager()

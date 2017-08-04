@@ -14,6 +14,9 @@ import android.os.Bundle;
 
 public class AGActivityGame extends Activity
 {
+
+
+
 	//Attributes
 	protected AGGameManager vrManager = null;
 
@@ -51,7 +54,9 @@ public class AGActivityGame extends Activity
 		AGSoundManager.vrMusic.pause();
 		vrManager.onPause();
 	}
-	
+
+
+
 	/*******************************************
 	* Name: onResume()
 	* Description: method called after resume application
