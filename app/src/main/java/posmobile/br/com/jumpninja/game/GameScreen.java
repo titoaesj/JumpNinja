@@ -82,7 +82,7 @@ public class GameScreen extends AGScene {
          */
         int multiplicador = 1;
         for (int pos = 0; pos < placar.length; pos++) {
-            placar[pos] = createSprite(R.drawable.fonte, 4, 4);
+            placar[pos] = createSprite(R.drawable.placar, 4, 4);
             placar[pos].setScreenPercent(10, 10);
             placar[pos].vrPosition.fY = AGScreenManager.iScreenHeight - (shuriken.getSpriteHeight() / 3);
             placar[pos].vrPosition.fX = 20 + multiplicador * placar[pos].getSpriteWidth();
