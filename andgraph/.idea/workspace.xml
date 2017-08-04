@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0b5d28f-d1ca-4833-b390-7c7e1cda8437" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/assets/explodenavio.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/assets/olha-o-gas.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../app/src/main/assets/toc.wav" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_dead.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_glide.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_glide.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" afterPath="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
     </list>
     <ignored path="andgraph.iws" />
@@ -46,26 +46,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+            <state relative-caret-position="297">
+              <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1004#1005#0" expanded="true" />
                 <element signature="e#1035#1036#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -77,17 +67,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ninja_female_glide.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_glide.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ninja_female_jump.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -2834,12 +2820,13 @@
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/splash/SplashScreen.java" />
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/menu/MenuScreen.java" />
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/credit/CreditScreen.java" />
-        <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
         <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java" />
+        <option value="$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="2" />
     <option name="y" value="23" />
     <option name="width" value="1366" />
     <option name="height" value="741" />
@@ -3613,7 +3600,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="741" extended-state="6" />
+    <frame x="2" y="23" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3965,6 +3952,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/res/drawable/ninja_female_jump.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3982,21 +3977,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/game/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+        <state relative-caret-position="297">
+          <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1004#1005#0" expanded="true" />
             <element signature="e#1035#1036#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../app/src/main/java/posmobile/br/com/jumpninja/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
