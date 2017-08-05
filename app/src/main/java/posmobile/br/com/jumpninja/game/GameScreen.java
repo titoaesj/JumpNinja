@@ -32,6 +32,7 @@ public class GameScreen extends AGScene {
     AGSprite ninja = null;
     AGSprite mGameOverBackground = null;
     AGSprite mGameOver = null;
+    AGSprite mGameGameOver = null;
     AGSprite mMenuGameOver = null;
     AGSprite mExitGameOver = null;
     ArrayList<AGSprite> plataformas = null;
@@ -115,8 +116,14 @@ public class GameScreen extends AGScene {
         mGameOver.bAutoRender = false;
         mGameOver.bVisible = false;
 
+        mGameGameOver = createSprite(R.drawable.button_game, 1, 1);
+        mGameGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2 + mGameGameOver.getSpriteHeight() / 3);
+        mGameGameOver.setScreenPercent(40, 10);
+        mGameGameOver.bAutoRender = false;
+        mGameGameOver.bVisible = false;
+
         mMenuGameOver = createSprite(R.drawable.button_menu, 1, 1);
-        mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
+        mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2 );
         mMenuGameOver.setScreenPercent(40, 10);
         mMenuGameOver.bAutoRender = false;
         mMenuGameOver.bVisible = false;
@@ -181,6 +188,7 @@ public class GameScreen extends AGScene {
         ninja.render();
         mGameOverBackground.render();
         mGameOver.render();
+        mGameGameOver.render();
         mMenuGameOver.render();
         mExitGameOver.render();
         painel.render();
@@ -212,6 +220,10 @@ public class GameScreen extends AGScene {
         }
 
         if (AGInputManager.vrTouchEvents.screenClicked()) {
+            if (mGameGameOver.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
+                gameOverHidden();
+                init();
+            }
             if (mMenuGameOver.collide(AGInputManager.vrTouchEvents.getLastPosition())) {
 
                 //Carrega a trilha sonora do jogo usando Music que faz buffer de som
@@ -241,6 +253,7 @@ public class GameScreen extends AGScene {
         mGameOver.bVisible = true;
         mMenuGameOver.bVisible = true;
         mExitGameOver.bVisible = true;
+        mGameGameOver.bVisible = true;
     }
 
     private void gameOverHidden() {
@@ -249,6 +262,7 @@ public class GameScreen extends AGScene {
         mGameOver.bVisible = false;
         mMenuGameOver.bVisible = false;
         mExitGameOver.bVisible = false;
+        mGameGameOver.bVisible = false;
     }
 
     private void atualizaPlacar() {
