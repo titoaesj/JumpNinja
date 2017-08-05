@@ -123,7 +123,7 @@ public class GameScreen extends AGScene {
         mGameGameOver.bVisible = false;
 
         mMenuGameOver = createSprite(R.drawable.button_menu, 1, 1);
-        mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2 );
+        mMenuGameOver.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         mMenuGameOver.setScreenPercent(40, 10);
         mMenuGameOver.bAutoRender = false;
         mMenuGameOver.bVisible = false;
@@ -217,6 +217,7 @@ public class GameScreen extends AGScene {
             atualizaMovimentoChao();
             atualizaPlacar();
             verificaGameOver();
+            calculaVelocidadeScrool();
         }
 
         if (AGInputManager.vrTouchEvents.screenClicked()) {
@@ -332,7 +333,7 @@ public class GameScreen extends AGScene {
             Float alturaPulo = ((ninja.getSpriteHeight() / 5));
 
             if (puloNinja < 5) {
-                if(!ninja.collide(painel)){
+                if (!ninja.collide(painel)) {
                     ninja.vrPosition.setY(ninja.vrPosition.getY() + alturaPulo);
                 }
             } else {
@@ -355,14 +356,14 @@ public class GameScreen extends AGScene {
         int lado = random.nextInt(2);
 
         //Seta qual lado vai ser criada a plataforma
-        if(ultimaPosicaoPlataforma == 0){
+        if (ultimaPosicaoPlataforma == 0) {
             ultimaPosicaoPlataforma = 2;
-        }else if(ultimaPosicaoPlataforma == 1 || ultimaPosicaoPlataforma == 3){
+        } else if (ultimaPosicaoPlataforma == 1 || ultimaPosicaoPlataforma == 3) {
             ultimaPosicaoPlataforma = 2;
-        } else if(ultimaPosicaoPlataforma == 2){
-            if(lado == 1){
+        } else if (ultimaPosicaoPlataforma == 2) {
+            if (lado == 1) {
                 ultimaPosicaoPlataforma = 1;
-            }else{
+            } else {
                 ultimaPosicaoPlataforma = 3;
             }
         }
@@ -372,13 +373,13 @@ public class GameScreen extends AGScene {
             if (plataforma.bRecycled) {
                 plataforma.bRecycled = false;
                 plataforma.bVisible = true;
-                if(ultimaPosicaoPlataforma == 1){ //Esquerda
+                if (ultimaPosicaoPlataforma == 1) { //Esquerda
                     plataforma.vrPosition.setX(0 + plataforma.getSpriteWidth() / 2);
-                }else if(ultimaPosicaoPlataforma == 2){ //Meio
+                } else if (ultimaPosicaoPlataforma == 2) { //Meio
                     plataforma.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
-                }else if(ultimaPosicaoPlataforma == 3){ //Direita
+                } else if (ultimaPosicaoPlataforma == 3) { //Direita
                     plataforma.vrPosition.setX(AGScreenManager.iScreenWidth - plataforma.getSpriteWidth() / 2);
-                }else{ //Default é no meio
+                } else { //Default é no meio
                     plataforma.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
                 }
                 plataforma.vrPosition.setY((AGScreenManager.iScreenHeight + plataforma.getSpriteHeight()));
@@ -388,13 +389,13 @@ public class GameScreen extends AGScene {
 
         AGSprite novaPlataforma = createSprite(R.drawable.plataforma, 1, 1);
         novaPlataforma.setScreenPercent(33, 5);
-        if(ultimaPosicaoPlataforma == 1){ //Esquerda
+        if (ultimaPosicaoPlataforma == 1) { //Esquerda
             novaPlataforma.vrPosition.setX(0 + novaPlataforma.getSpriteWidth() / 2);
-        }else if(ultimaPosicaoPlataforma == 2){ //Meio
+        } else if (ultimaPosicaoPlataforma == 2) { //Meio
             novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
-        }else if(ultimaPosicaoPlataforma == 3){ //Direita
+        } else if (ultimaPosicaoPlataforma == 3) { //Direita
             novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth - novaPlataforma.getSpriteWidth() / 2);
-        }else{ //Default é no Meio
+        } else { //Default é no Meio
             novaPlataforma.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         }
         novaPlataforma.vrPosition.setY((AGScreenManager.iScreenHeight + novaPlataforma.getSpriteHeight()));
@@ -455,6 +456,12 @@ public class GameScreen extends AGScene {
     private void verificaGameOver() {
         if (ninja.vrPosition.fY < 0 - ninja.getSpriteHeight() / 2) {
             gameOverShow();
+        }
+    }
+
+    private void calculaVelocidadeScrool() {
+        if(pontuacao >= 50){
+            velocidadeScroll = pontuacao / 50;
         }
     }
 }
