@@ -36,8 +36,8 @@ public class SplashScreen extends AGScene {
     public void init() {
         timer = new AGTimer(5000);
         setSceneBackgroundColor(1.0f,1.0f,1.0f);
-        title = createSprite(R.drawable.title,1,1);
-        title.setScreenPercent(60,10);
+        title = createSprite(R.drawable.splash,1,1);
+        title.setScreenPercent(80,80);
         title.vrPosition.setX(AGScreenManager.iScreenWidth / 2);
         title.vrPosition.setY(AGScreenManager.iScreenHeight / 2);
     }
