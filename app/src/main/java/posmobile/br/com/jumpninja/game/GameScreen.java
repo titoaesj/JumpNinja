@@ -78,7 +78,7 @@ public class GameScreen extends AGScene {
         plataformas = new ArrayList<>();
 
         scrollMapaAtivo = false;
-        velocidadeScroll = 1;
+        velocidadeScroll = 4;
         tempoPontuacao = 0;
         pontuacao = 0;
         puloNinja = 0;
@@ -460,8 +460,8 @@ public class GameScreen extends AGScene {
     }
 
     private void calculaVelocidadeScrool() {
-        if(pontuacao >= 50){
-            velocidadeScroll = pontuacao / 50;
+        if(pontuacao >= 25){
+            velocidadeScroll = pontuacao / 25;
         }
     }
 }
