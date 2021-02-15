@@ -13,8 +13,8 @@ Co-autor Kayque Camargo
 <div align="center">
 
 <p>
-  <a href="https://play.google.com/store/apps/details?id=posmobile.br.com.jumpninja" target="_blank">
-    <img src="https://github.com/titoaesj/JumpNinja/blob/master/google-play-badge.png" alt="google play" width="546" height="150" />
+  <a href="#" target="_blank" rel="https://play.google.com/store/apps/details?id=posmobile.br.com.jumpninja">
+    <img src="https://github.com/titoaesj/JumpNinja/blob/master/google-play-badge.png" alt="google play" width="269" height="104" />
   </a>
 </p>
        
