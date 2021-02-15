@@ -20,8 +20,6 @@ Co-autor Kayque Camargo
        
 </div>
 
-<br/>
-
 <div align="center">
     <img src="https://github.com/titoaesj/JumpNinja/blob/master/demo.gif" alt="demo app" width="440" height="783"/>
 </div>
