@@ -11,7 +11,13 @@ Co-autor Kayque Camargo
 <p> Em Jump Ninja, o Jogador é um ninja onde esta treinando suas habilidades para poder ser o melhor ninja de todos os tempos. Jump Ninja é um jogo de ação e aventura onde seu objetivo é chegar o mais alto possível para isso o jogador precisa pular de plataforma em plataforma rumo ao topo, desviando dos obstáculos que aparecem no seu caminho e escolhendo sabiamente onde será seu próximo salto. </p>
 
 <div align="center">
-    [![](https://github.com/titoaesj/JumpNinja/blob/master/google-play-badge.png)](https://play.google.com/store/apps/details?id=posmobile.br.com.jumpninja)     
+
+<p>
+  <a href="https://play.google.com/store/apps/details?id=posmobile.br.com.jumpninja">
+    <img src="https://github.com/titoaesj/JumpNinja/blob/master/google-play-badge.png" alt=“google play” />
+  </a>
+</p>
+       
 </div>
 
 <br/>
