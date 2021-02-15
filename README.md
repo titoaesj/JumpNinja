@@ -2,17 +2,21 @@
 
 <br/>
 
+Co-autor Kayque Camargo
+
 <p>História do Jogo<p>
 <p> Um ninja deve treinar arduamente ultrapassando seus limites para se tornar cada vez mais forte. Para isso deve se passar pelo treinamento de sobrevivência da floresta das sombras que esta repleta de obstáculos onde o ninja deve chegar o mais alto possível para aprimorar suas habilidades. </p>
 
 <p> O jogo </p>
 <p> Em Jump Ninja, o Jogador é um ninja onde esta treinando suas habilidades para poder ser o melhor ninja de todos os tempos. Jump Ninja é um jogo de ação e aventura onde seu objetivo é chegar o mais alto possível para isso o jogador precisa pular de plataforma em plataforma rumo ao topo, desviando dos obstáculos que aparecem no seu caminho e escolhendo sabiamente onde será seu próximo salto. </p>
 
-<br/>
-
 <div align="center">
-    <img src="https://github.com/titoaesj/JumpNinja/blob/master/google-play-badge.png" alt="google play"/>
+    <a href="https://play.google.com/store/apps/details?id=posmobile.br.com.jumpninja">
+        <img src="https://github.com/titoaesj/JumpNinja/blob/master/google-play-badge.png" alt="google play"/>
+    </a>
 </div>
+
+<br/>
 
 <div align="center">
     <img src="https://github.com/titoaesj/JumpNinja/blob/master/demo.gif" alt="demo app" width="440" height="783"/>
