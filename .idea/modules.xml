@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JumpNinja.iml" filepath="$PROJECT_DIR$/JumpNinja.iml" />
-      <module fileurl="file://$PROJECT_DIR$/andgraph/andgraph.iml" filepath="$PROJECT_DIR$/andgraph/andgraph.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JumpNinja.iml" filepath="$PROJECT_DIR$/.idea/modules/JumpNinja.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/andgraph/JumpNinja.andgraph.iml" filepath="$PROJECT_DIR$/.idea/modules/andgraph/JumpNinja.andgraph.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/JumpNinja.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/JumpNinja.app.iml" />
     </modules>
   </component>
 </project>
